@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? "https://ares-prod-ce9q.onrender.com/api";
+
 function sendEvent(event: string, payload: Record<string, any>) {
   const body = JSON.stringify({
     event,
@@ -9,15 +11,12 @@ function sendEvent(event: string, payload: Record<string, any>) {
     ts: new Date().toISOString()
   });
 
-  if (typeof navigator !== "undefined" && "sendBeacon" in navigator) {
-    navigator.sendBeacon("/api/analytics", body);
-  } else {
-    fetch("/api/analytics", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body
-    }).catch(() => {});
-  }
+  fetch(`${apiBase}/public/analytics`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body,
+    keepalive: true
+  }).catch(() => {});
 }
 
 export default function AnalyticsTracker() {

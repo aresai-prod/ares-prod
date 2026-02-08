@@ -1,20 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="ARES">
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="core" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
-      <stop offset="45%" stop-color="#09A1A1" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#30525C" stop-opacity="0.9"/>
-    </radialGradient>
-    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F6C992"/>
-      <stop offset="50%" stop-color="#D396A6"/>
-      <stop offset="100%" stop-color="#ACC0D3"/>
+    <linearGradient id="bg-grad" x1="80" y1="80" x2="880" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ACC0D3" stop-opacity="0.4" />
+      <stop offset="0.5" stop-color="#D396A6" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#09A1A1" stop-opacity="0.35" />
     </linearGradient>
+    <linearGradient id="core-grad" x1="290" y1="180" x2="670" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09A1A1" />
+      <stop offset="0.45" stop-color="#5484A4" />
+      <stop offset="1" stop-color="#D396A6" />
+    </linearGradient>
+    <radialGradient id="halo-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 250) rotate(35) scale(260 170)">
+      <stop stop-color="#09A1A1" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#09A1A1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="halo-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 470) rotate(-20) scale(240 160)">
+      <stop stop-color="#D396A6" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#D396A6" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24" />
+    </filter>
   </defs>
-  <rect width="640" height="640" rx="160" fill="url(#core)" opacity="0.4"/>
-  <circle cx="320" cy="320" r="170" fill="url(#core)"/>
-  <circle cx="320" cy="320" r="210" fill="none" stroke="url(#ring)" stroke-width="18" opacity="0.85"/>
-  <circle cx="320" cy="320" r="250" fill="none" stroke="#ACC0D3" stroke-width="8" opacity="0.6"/>
-  <path d="M320 210l90 180h-180z" fill="#0B1E24" opacity="0.85"/>
-  <path d="M320 250l60 120h-120z" fill="#ffffff" opacity="0.7"/>
+
+  <rect width="960" height="720" rx="48" fill="url(#bg-grad)"/>
+  <ellipse cx="300" cy="250" rx="260" ry="170" fill="url(#halo-a)" filter="url(#soft)"/>
+  <ellipse cx="640" cy="470" rx="240" ry="160" fill="url(#halo-b)" filter="url(#soft)"/>
+
+  <g opacity="0.9">
+    <path d="M180 330C255 270 325 245 430 250C515 255 620 300 760 290" stroke="#5484A4" stroke-width="4" stroke-linecap="round" />
+    <path d="M180 390C270 445 350 468 455 460C555 452 655 410 770 430" stroke="#ACC0D3" stroke-width="4" stroke-linecap="round" />
+    <path d="M210 245C315 195 410 185 520 220C620 252 700 330 750 420" stroke="#09A1A1" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7" />
+  </g>
+
+  <g transform="translate(330 180)">
+    <rect x="0" y="0" width="300" height="300" rx="72" fill="#F8FBFF" fill-opacity="0.84" stroke="url(#core-grad)" stroke-width="4" />
+    <path d="M150 62L232 244H193L174 203H126L107 244H68L150 62Z" fill="url(#core-grad)" />
+  </g>
+
+  <g opacity="0.86">
+    <circle cx="230" cy="220" r="10" fill="#09A1A1"/>
+    <circle cx="690" cy="250" r="8" fill="#5484A4"/>
+    <circle cx="760" cy="385" r="7" fill="#D396A6"/>
+    <circle cx="260" cy="500" r="9" fill="#ACC0D3"/>
+    <circle cx="615" cy="515" r="6" fill="#09A1A1"/>
+  </g>
 </svg>

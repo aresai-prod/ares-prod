@@ -17,6 +17,7 @@ import orgRoutes from "./routes/org.js";
 import billingRoutes from "./routes/billing.js";
 import adminRoutes from "./routes/admin.js";
 import conciergeRoutes from "./routes/concierge.js";
+import publicRoutes from "./routes/public.js";
 
 dotenv.config();
 
@@ -65,6 +66,7 @@ app.use("/api/connectors", connectorRoutes);
 app.use("/api/billing", billingRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/concierge", conciergeRoutes);
+app.use("/api/public", publicRoutes);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
