@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ares-ink: #30525c;
+  --ares-mist: #acc0d3;
+  --ares-sand: #f6c992;
+  --ares-rose: #d396a6;
+  --ares-teal: #09a1a1;
+  --ares-blue: #5484a4;
+  --ares-gradient: linear-gradient(135deg, #09a1a1, #5484a4, #d396a6, #f6c992);
+  --ares-bg: linear-gradient(135deg, #f8fbff 0%, #edf3fb 40%, #f6edf2 100%);
+  --ares-text: #20323b;
+  --ares-muted: #556b78;
+}
+
+@property --rx {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --ry {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --float-y {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ares-bg);
+  color: var(--ares-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.text-ares {
+  color: var(--ares-text);
+}
+
+.text-ares-muted {
+  color: rgba(32, 50, 59, 0.7);
+}
+
+.text-ares-faint {
+  color: rgba(32, 50, 59, 0.55);
+}
+
+.text-ares-ghost {
+  color: rgba(32, 50, 59, 0.4);
+}
+
+.text-ares-cyan {
+  color: var(--ares-teal);
+}
+
+.input-ares {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(48, 82, 92, 0.2);
+  color: var(--ares-text);
+}
+
+.input-ares::placeholder {
+  color: rgba(32, 50, 59, 0.5);
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+.section-shell {
+  position: relative;
+  padding: 120px 8vw;
+  overflow: hidden;
+}
+
+.section-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(9, 161, 161, 0.2), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(211, 150, 166, 0.2), transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.section-shell.melt {
+  border-bottom: 1px solid rgba(48, 82, 92, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(248, 251, 255, 0.92));
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(48, 82, 92, 0.14);
+  box-shadow: 0 20px 60px rgba(32, 50, 59, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+}
+
+.card-static {
+  transform: none !important;
+  transition: none !important;
+}
+
+.neon-border {
+  border: 1px solid rgba(9, 161, 161, 0.4);
+  box-shadow: 0 0 30px rgba(9, 161, 161, 0.18);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at var(--splash-x, 50%) var(--splash-y, 50%), rgba(9, 161, 161, var(--splash-opacity, 0)), transparent 55%),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(9, 161, 161, 0.18), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(211, 150, 166, 0.2), transparent 50%);
+  transition: background-position 0.2s ease, opacity 0.3s ease;
+  z-index: 0;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: rgba(32, 50, 59, 0.7);
+  max-width: 680px;
+}
+
+.primary-cta {
+  background: var(--ares-gradient);
+  color: #0f172a;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 999px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 25px rgba(9, 161, 161, 0.35);
+}
+
+.primary-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(9, 161, 161, 0.45);
+}
+
+.secondary-cta {
+  border: 1px solid rgba(48, 82, 92, 0.2);
+  color: var(--ares-text);
+  padding: 12px 26px;
+  border-radius: 999px;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.secondary-cta:hover {
+  border-color: rgba(9, 161, 161, 0.6);
+  transform: translateY(-2px);
+}
+
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(9, 161, 161, 0.16), transparent 50%),
+    radial-gradient(circle at bottom, rgba(211, 150, 166, 0.18), transparent 60%),
+    #f8fbff;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+
+.loader-glass {
+  width: min(360px, 85vw);
+  padding: 26px 30px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(9, 161, 161, 0.25);
+  box-shadow: 0 24px 60px rgba(32, 50, 59, 0.2);
+  backdrop-filter: blur(18px);
+  display: grid;
+  place-items: center;
+}
+
+.loader-text-line {
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(32, 50, 59, 0.8);
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.25;
+  animation: loaderLetterPulse 1.6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes loaderLetterPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor-tilt,
+.floating-card {
+  transform: none;
+  animation: none;
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+.concierge-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ares-gradient);
+  border: none;
+  color: #050507;
+  font-weight: 600;
+  box-shadow: 0 12px 26px rgba(0, 229, 255, 0.25);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.chat-window {
+  width: min(340px, 90vw);
+  max-height: 420px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.chat-messages {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.chat-bubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.chat-bubble.user {
+  background: rgba(0, 229, 255, 0.2);
+}
+
+.footer-links a {
+  color: rgba(229, 231, 235, 0.7);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00e5ff;
+}
+
+@media (max-width: 900px) {
+  .section-shell {
+    padding: 90px 6vw;
+  }
+  .chat-widget {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.6rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .chat-window {
+    width: calc(100% - 32px);
+  }
+}

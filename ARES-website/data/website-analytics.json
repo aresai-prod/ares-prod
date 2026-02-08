@@ -1,0 +1,4184 @@
+[
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:21:37.920Z",
+    "receivedAt": "2026-02-07T08:21:38.011Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:21:38.124Z",
+    "receivedAt": "2026-02-07T08:21:38.128Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 34179
+    },
+    "ts": "2026-02-07T08:22:12.303Z",
+    "receivedAt": "2026-02-07T08:22:12.317Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:22:12.567Z",
+    "receivedAt": "2026-02-07T08:22:12.575Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 1115
+    },
+    "ts": "2026-02-07T08:22:13.419Z",
+    "receivedAt": "2026-02-07T08:22:13.431Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:22:14.049Z",
+    "receivedAt": "2026-02-07T08:22:14.058Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 749
+    },
+    "ts": "2026-02-07T08:22:14.169Z",
+    "receivedAt": "2026-02-07T08:22:14.180Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 8431
+    },
+    "ts": "2026-02-07T08:22:22.600Z",
+    "receivedAt": "2026-02-07T08:22:22.612Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:22:22.667Z",
+    "receivedAt": "2026-02-07T08:22:22.676Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 917
+    },
+    "ts": "2026-02-07T08:22:23.517Z",
+    "receivedAt": "2026-02-07T08:22:23.527Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 766
+    },
+    "ts": "2026-02-07T08:22:24.283Z",
+    "receivedAt": "2026-02-07T08:22:24.292Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 182
+    },
+    "ts": "2026-02-07T08:22:24.466Z",
+    "receivedAt": "2026-02-07T08:22:24.475Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:22:24.566Z",
+    "receivedAt": "2026-02-07T08:22:24.574Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 2550
+    },
+    "ts": "2026-02-07T08:22:27.017Z",
+    "receivedAt": "2026-02-07T08:22:27.028Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 99
+    },
+    "ts": "2026-02-07T08:22:27.116Z",
+    "receivedAt": "2026-02-07T08:22:27.125Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 2917
+    },
+    "ts": "2026-02-07T08:22:30.034Z",
+    "receivedAt": "2026-02-07T08:22:30.042Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 866
+    },
+    "ts": "2026-02-07T08:22:30.901Z",
+    "receivedAt": "2026-02-07T08:22:30.913Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Go to Console Bay",
+      "href": "https://console.ares.ai/login"
+    },
+    "ts": "2026-02-07T08:22:38.207Z",
+    "receivedAt": "2026-02-07T08:22:38.222Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:10.414Z",
+    "receivedAt": "2026-02-07T08:24:10.420Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:10.439Z",
+    "receivedAt": "2026-02-07T08:24:10.444Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "https://console.ares.ai/login"
+    },
+    "ts": "2026-02-07T08:24:18.724Z",
+    "receivedAt": "2026-02-07T08:24:18.742Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:37.505Z",
+    "receivedAt": "2026-02-07T08:24:37.518Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:37.529Z",
+    "receivedAt": "2026-02-07T08:24:37.533Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 3571
+    },
+    "ts": "2026-02-07T08:24:41.100Z",
+    "receivedAt": "2026-02-07T08:24:41.109Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:24:41.183Z",
+    "receivedAt": "2026-02-07T08:24:41.191Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 133
+    },
+    "ts": "2026-02-07T08:24:41.233Z",
+    "receivedAt": "2026-02-07T08:24:41.240Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:24:41.433Z",
+    "receivedAt": "2026-02-07T08:24:41.442Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 200
+    },
+    "ts": "2026-02-07T08:24:41.434Z",
+    "receivedAt": "2026-02-07T08:24:41.444Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:24:41.650Z",
+    "receivedAt": "2026-02-07T08:24:41.659Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 217
+    },
+    "ts": "2026-02-07T08:24:41.651Z",
+    "receivedAt": "2026-02-07T08:24:41.660Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 49
+    },
+    "ts": "2026-02-07T08:24:41.701Z",
+    "receivedAt": "2026-02-07T08:24:41.709Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:24:41.716Z",
+    "receivedAt": "2026-02-07T08:24:41.724Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Go to Console Bay",
+      "href": "https://console.ares.ai/login"
+    },
+    "ts": "2026-02-07T08:24:49.390Z",
+    "receivedAt": "2026-02-07T08:24:49.406Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:54.848Z",
+    "receivedAt": "2026-02-07T08:24:54.851Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:24:54.873Z",
+    "receivedAt": "2026-02-07T08:24:54.878Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 25
+    },
+    "ts": "2026-02-07T08:24:54.898Z",
+    "receivedAt": "2026-02-07T08:24:54.901Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:27:10.068Z",
+    "receivedAt": "2026-02-07T08:27:10.088Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:27:10.069Z",
+    "receivedAt": "2026-02-07T08:27:10.089Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:27:10.069Z",
+    "receivedAt": "2026-02-07T08:27:10.090Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:27:10.069Z",
+    "receivedAt": "2026-02-07T08:27:10.090Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 140231
+    },
+    "ts": "2026-02-07T08:27:15.129Z",
+    "receivedAt": "2026-02-07T08:27:15.141Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 1866
+    },
+    "ts": "2026-02-07T08:27:16.995Z",
+    "receivedAt": "2026-02-07T08:27:17.004Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 149
+    },
+    "ts": "2026-02-07T08:27:17.145Z",
+    "receivedAt": "2026-02-07T08:27:17.154Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 684
+    },
+    "ts": "2026-02-07T08:27:17.829Z",
+    "receivedAt": "2026-02-07T08:27:17.839Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 149
+    },
+    "ts": "2026-02-07T08:27:17.978Z",
+    "receivedAt": "2026-02-07T08:27:17.987Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 1502
+    },
+    "ts": "2026-02-07T08:27:19.480Z",
+    "receivedAt": "2026-02-07T08:27:19.489Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 99
+    },
+    "ts": "2026-02-07T08:27:19.579Z",
+    "receivedAt": "2026-02-07T08:27:19.589Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 216
+    },
+    "ts": "2026-02-07T08:27:19.795Z",
+    "receivedAt": "2026-02-07T08:27:19.803Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 13401
+    },
+    "ts": "2026-02-07T08:27:33.196Z",
+    "receivedAt": "2026-02-07T08:27:33.205Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:27:33.279Z",
+    "receivedAt": "2026-02-07T08:27:33.289Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 100
+    },
+    "ts": "2026-02-07T08:27:33.379Z",
+    "receivedAt": "2026-02-07T08:27:33.387Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 417
+    },
+    "ts": "2026-02-07T08:27:33.796Z",
+    "receivedAt": "2026-02-07T08:27:33.805Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 2117
+    },
+    "ts": "2026-02-07T08:27:35.913Z",
+    "receivedAt": "2026-02-07T08:27:35.922Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 915
+    },
+    "ts": "2026-02-07T08:27:36.828Z",
+    "receivedAt": "2026-02-07T08:27:36.838Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 249
+    },
+    "ts": "2026-02-07T08:27:37.078Z",
+    "receivedAt": "2026-02-07T08:27:37.089Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 250
+    },
+    "ts": "2026-02-07T08:27:37.329Z",
+    "receivedAt": "2026-02-07T08:27:37.340Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 200
+    },
+    "ts": "2026-02-07T08:27:37.529Z",
+    "receivedAt": "2026-02-07T08:27:37.537Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 516
+    },
+    "ts": "2026-02-07T08:27:38.045Z",
+    "receivedAt": "2026-02-07T08:27:38.056Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 4665
+    },
+    "ts": "2026-02-07T08:27:42.711Z",
+    "receivedAt": "2026-02-07T08:27:42.722Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:28:14.091Z",
+    "receivedAt": "2026-02-07T08:28:14.095Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:28:14.114Z",
+    "receivedAt": "2026-02-07T08:28:14.117Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "https://console.ares.ai/login"
+    },
+    "ts": "2026-02-07T08:28:18.302Z",
+    "receivedAt": "2026-02-07T08:28:18.316Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:28:20.752Z",
+    "receivedAt": "2026-02-07T08:28:20.759Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:28:20.777Z",
+    "receivedAt": "2026-02-07T08:28:20.781Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 8387
+    },
+    "ts": "2026-02-07T08:28:29.164Z",
+    "receivedAt": "2026-02-07T08:28:29.176Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:28:29.228Z",
+    "receivedAt": "2026-02-07T08:28:29.235Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 114
+    },
+    "ts": "2026-02-07T08:28:29.278Z",
+    "receivedAt": "2026-02-07T08:28:29.285Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:28:29.411Z",
+    "receivedAt": "2026-02-07T08:28:29.423Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 134
+    },
+    "ts": "2026-02-07T08:28:29.412Z",
+    "receivedAt": "2026-02-07T08:28:29.424Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 867
+    },
+    "ts": "2026-02-07T08:28:30.279Z",
+    "receivedAt": "2026-02-07T08:28:30.289Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:28:30.345Z",
+    "receivedAt": "2026-02-07T08:28:30.354Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 801
+    },
+    "ts": "2026-02-07T08:28:31.080Z",
+    "receivedAt": "2026-02-07T08:28:31.088Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:28:31.161Z",
+    "receivedAt": "2026-02-07T08:28:31.170Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 682
+    },
+    "ts": "2026-02-07T08:28:31.762Z",
+    "receivedAt": "2026-02-07T08:28:31.770Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 99
+    },
+    "ts": "2026-02-07T08:28:31.861Z",
+    "receivedAt": "2026-02-07T08:28:31.870Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 183
+    },
+    "ts": "2026-02-07T08:28:32.045Z",
+    "receivedAt": "2026-02-07T08:28:32.055Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 433
+    },
+    "ts": "2026-02-07T08:28:32.479Z",
+    "receivedAt": "2026-02-07T08:28:32.487Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 14682
+    },
+    "ts": "2026-02-07T08:28:47.161Z",
+    "receivedAt": "2026-02-07T08:28:47.171Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 41816
+    },
+    "ts": "2026-02-07T08:29:28.978Z",
+    "receivedAt": "2026-02-07T08:29:28.995Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 232
+    },
+    "ts": "2026-02-07T08:29:29.211Z",
+    "receivedAt": "2026-02-07T08:29:29.220Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 1116
+    },
+    "ts": "2026-02-07T08:29:30.327Z",
+    "receivedAt": "2026-02-07T08:29:30.335Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 149
+    },
+    "ts": "2026-02-07T08:29:30.477Z",
+    "receivedAt": "2026-02-07T08:29:30.486Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 380398
+    },
+    "ts": "2026-02-07T08:35:50.876Z",
+    "receivedAt": "2026-02-07T08:35:50.889Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 2949
+    },
+    "ts": "2026-02-07T08:35:53.826Z",
+    "receivedAt": "2026-02-07T08:35:53.835Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:35:53.909Z",
+    "receivedAt": "2026-02-07T08:35:53.919Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 68
+    },
+    "ts": "2026-02-07T08:35:53.977Z",
+    "receivedAt": "2026-02-07T08:35:53.985Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 216
+    },
+    "ts": "2026-02-07T08:35:54.193Z",
+    "receivedAt": "2026-02-07T08:35:54.202Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 10099
+    },
+    "ts": "2026-02-07T08:36:04.293Z",
+    "receivedAt": "2026-02-07T08:36:04.302Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 133
+    },
+    "ts": "2026-02-07T08:36:04.426Z",
+    "receivedAt": "2026-02-07T08:36:04.435Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 3268
+    },
+    "ts": "2026-02-07T08:36:07.695Z",
+    "receivedAt": "2026-02-07T08:36:07.704Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 4850
+    },
+    "ts": "2026-02-07T08:36:12.545Z",
+    "receivedAt": "2026-02-07T08:36:12.555Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 181
+    },
+    "ts": "2026-02-07T08:36:12.727Z",
+    "receivedAt": "2026-02-07T08:36:12.737Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 283
+    },
+    "ts": "2026-02-07T08:36:13.011Z",
+    "receivedAt": "2026-02-07T08:36:13.020Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 16667
+    },
+    "ts": "2026-02-07T08:36:29.678Z",
+    "receivedAt": "2026-02-07T08:36:29.688Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 514
+    },
+    "ts": "2026-02-07T08:36:30.193Z",
+    "receivedAt": "2026-02-07T08:36:30.202Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 2884
+    },
+    "ts": "2026-02-07T08:36:33.078Z",
+    "receivedAt": "2026-02-07T08:36:33.086Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 101
+    },
+    "ts": "2026-02-07T08:36:33.179Z",
+    "receivedAt": "2026-02-07T08:36:33.188Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 148
+    },
+    "ts": "2026-02-07T08:36:33.327Z",
+    "receivedAt": "2026-02-07T08:36:33.336Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 5233
+    },
+    "ts": "2026-02-07T08:36:38.560Z",
+    "receivedAt": "2026-02-07T08:36:38.569Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 185
+    },
+    "ts": "2026-02-07T08:36:38.745Z",
+    "receivedAt": "2026-02-07T08:36:38.754Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 1151
+    },
+    "ts": "2026-02-07T08:36:39.896Z",
+    "receivedAt": "2026-02-07T08:36:39.904Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 64
+    },
+    "ts": "2026-02-07T08:36:39.960Z",
+    "receivedAt": "2026-02-07T08:36:39.968Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:36:40.043Z",
+    "receivedAt": "2026-02-07T08:36:40.053Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 116
+    },
+    "ts": "2026-02-07T08:36:40.160Z",
+    "receivedAt": "2026-02-07T08:36:40.169Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 235
+    },
+    "ts": "2026-02-07T08:36:40.395Z",
+    "receivedAt": "2026-02-07T08:36:40.402Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 5799
+    },
+    "ts": "2026-02-07T08:36:46.194Z",
+    "receivedAt": "2026-02-07T08:36:46.204Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 66
+    },
+    "ts": "2026-02-07T08:36:46.260Z",
+    "receivedAt": "2026-02-07T08:36:46.269Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:36:46.344Z",
+    "receivedAt": "2026-02-07T08:36:46.351Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 220
+    },
+    "ts": "2026-02-07T08:36:46.564Z",
+    "receivedAt": "2026-02-07T08:36:46.573Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/"
+    },
+    "ts": "2026-02-07T08:44:42.137Z",
+    "receivedAt": "2026-02-07T08:44:42.316Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:44:45.133Z",
+    "receivedAt": "2026-02-07T08:44:45.136Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:44:45.155Z",
+    "receivedAt": "2026-02-07T08:44:45.159Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 5392
+    },
+    "ts": "2026-02-07T08:44:50.547Z",
+    "receivedAt": "2026-02-07T08:44:50.558Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Enter Console Bay",
+      "href": "http://localhost:5173/"
+    },
+    "ts": "2026-02-07T08:44:52.537Z",
+    "receivedAt": "2026-02-07T08:44:52.547Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:44:54.520Z",
+    "receivedAt": "2026-02-07T08:44:54.537Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:44:54.541Z",
+    "receivedAt": "2026-02-07T08:44:54.549Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:44:58.899Z",
+    "receivedAt": "2026-02-07T08:44:58.909Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 4375
+    },
+    "ts": "2026-02-07T08:44:58.916Z",
+    "receivedAt": "2026-02-07T08:44:58.924Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 6163
+    },
+    "ts": "2026-02-07T08:45:05.079Z",
+    "receivedAt": "2026-02-07T08:45:05.090Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:45:07.395Z",
+    "receivedAt": "2026-02-07T08:45:07.405Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 4500
+    },
+    "ts": "2026-02-07T08:45:09.580Z",
+    "receivedAt": "2026-02-07T08:45:09.588Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 36383
+    },
+    "ts": "2026-02-07T08:45:45.963Z",
+    "receivedAt": "2026-02-07T08:45:45.977Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:45:46.795Z",
+    "receivedAt": "2026-02-07T08:45:46.803Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 3283
+    },
+    "ts": "2026-02-07T08:45:49.246Z",
+    "receivedAt": "2026-02-07T08:45:49.256Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:45:54.163Z",
+    "receivedAt": "2026-02-07T08:45:54.173Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Go to Console",
+      "href": "http://localhost:5173/"
+    },
+    "ts": "2026-02-07T08:45:59.220Z",
+    "receivedAt": "2026-02-07T08:45:59.232Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:46:01.482Z",
+    "receivedAt": "2026-02-07T08:46:01.485Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T08:46:01.504Z",
+    "receivedAt": "2026-02-07T08:46:01.513Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T08:46:31.618Z",
+    "receivedAt": "2026-02-07T08:46:31.633Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T08:46:31.619Z",
+    "receivedAt": "2026-02-07T08:46:31.634Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T08:46:31.619Z",
+    "receivedAt": "2026-02-07T08:46:31.635Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T08:46:31.619Z",
+    "receivedAt": "2026-02-07T08:46:31.635Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 30175
+    },
+    "ts": "2026-02-07T08:46:31.679Z",
+    "receivedAt": "2026-02-07T08:46:31.689Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 266
+    },
+    "ts": "2026-02-07T08:46:31.946Z",
+    "receivedAt": "2026-02-07T08:46:31.955Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 483
+    },
+    "ts": "2026-02-07T08:46:32.429Z",
+    "receivedAt": "2026-02-07T08:46:32.439Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 4969
+    },
+    "ts": "2026-02-07T08:46:37.398Z",
+    "receivedAt": "2026-02-07T08:46:37.407Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 48
+    },
+    "ts": "2026-02-07T08:46:37.446Z",
+    "receivedAt": "2026-02-07T08:46:37.455Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 33
+    },
+    "ts": "2026-02-07T08:46:37.480Z",
+    "receivedAt": "2026-02-07T08:46:37.488Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 66
+    },
+    "ts": "2026-02-07T08:46:37.546Z",
+    "receivedAt": "2026-02-07T08:46:37.555Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:46:37.629Z",
+    "receivedAt": "2026-02-07T08:46:37.638Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 167
+    },
+    "ts": "2026-02-07T08:46:37.796Z",
+    "receivedAt": "2026-02-07T08:46:37.805Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 985
+    },
+    "ts": "2026-02-07T08:46:38.781Z",
+    "receivedAt": "2026-02-07T08:46:38.790Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 65
+    },
+    "ts": "2026-02-07T08:46:38.846Z",
+    "receivedAt": "2026-02-07T08:46:38.855Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 83
+    },
+    "ts": "2026-02-07T08:46:38.929Z",
+    "receivedAt": "2026-02-07T08:46:38.938Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 99
+    },
+    "ts": "2026-02-07T08:46:39.029Z",
+    "receivedAt": "2026-02-07T08:46:39.037Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 150
+    },
+    "ts": "2026-02-07T08:46:39.179Z",
+    "receivedAt": "2026-02-07T08:46:39.188Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 183
+    },
+    "ts": "2026-02-07T08:46:39.363Z",
+    "receivedAt": "2026-02-07T08:46:39.372Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 2234
+    },
+    "ts": "2026-02-07T08:46:41.597Z",
+    "receivedAt": "2026-02-07T08:46:41.607Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 99
+    },
+    "ts": "2026-02-07T08:46:41.696Z",
+    "receivedAt": "2026-02-07T08:46:41.706Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 66
+    },
+    "ts": "2026-02-07T08:46:41.763Z",
+    "receivedAt": "2026-02-07T08:46:41.773Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 117
+    },
+    "ts": "2026-02-07T08:46:41.880Z",
+    "receivedAt": "2026-02-07T08:46:41.888Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 233
+    },
+    "ts": "2026-02-07T08:46:42.113Z",
+    "receivedAt": "2026-02-07T08:46:42.122Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 153
+    },
+    "ts": "2026-02-07T08:46:42.266Z",
+    "receivedAt": "2026-02-07T08:46:42.274Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 101329
+    },
+    "ts": "2026-02-07T08:48:23.595Z",
+    "receivedAt": "2026-02-07T08:48:23.605Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 82
+    },
+    "ts": "2026-02-07T08:48:23.678Z",
+    "receivedAt": "2026-02-07T08:48:23.687Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 67
+    },
+    "ts": "2026-02-07T08:48:23.746Z",
+    "receivedAt": "2026-02-07T08:48:23.754Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 66
+    },
+    "ts": "2026-02-07T08:48:23.812Z",
+    "receivedAt": "2026-02-07T08:48:23.820Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 133
+    },
+    "ts": "2026-02-07T08:48:23.945Z",
+    "receivedAt": "2026-02-07T08:48:23.955Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 551
+    },
+    "ts": "2026-02-07T08:48:24.497Z",
+    "receivedAt": "2026-02-07T08:48:24.507Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/"
+    },
+    "ts": "2026-02-07T08:51:23.253Z",
+    "receivedAt": "2026-02-07T08:51:23.359Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:34:16.204Z",
+    "receivedAt": "2026-02-07T09:34:16.278Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:34:16.178Z",
+    "receivedAt": "2026-02-07T09:34:16.280Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T09:34:34.444Z",
+    "receivedAt": "2026-02-07T09:34:34.461Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:35:15.016Z",
+    "receivedAt": "2026-02-07T09:35:15.019Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:35:15.040Z",
+    "receivedAt": "2026-02-07T09:35:15.045Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T09:46:42.979Z",
+    "receivedAt": "2026-02-07T09:46:43.179Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:47:44.945Z",
+    "receivedAt": "2026-02-07T09:47:44.949Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:47:44.968Z",
+    "receivedAt": "2026-02-07T09:47:44.972Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:47:50.165Z",
+    "receivedAt": "2026-02-07T09:47:50.171Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:47:50.187Z",
+    "receivedAt": "2026-02-07T09:47:50.191Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 16519
+    },
+    "ts": "2026-02-07T09:48:06.706Z",
+    "receivedAt": "2026-02-07T09:48:06.715Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T09:48:07.272Z",
+    "receivedAt": "2026-02-07T09:48:07.285Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 617
+    },
+    "ts": "2026-02-07T09:48:07.323Z",
+    "receivedAt": "2026-02-07T09:48:07.333Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 948
+    },
+    "ts": "2026-02-07T09:48:08.272Z",
+    "receivedAt": "2026-02-07T09:48:08.281Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T09:48:11.137Z",
+    "receivedAt": "2026-02-07T09:48:11.146Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 3032
+    },
+    "ts": "2026-02-07T09:48:11.304Z",
+    "receivedAt": "2026-02-07T09:48:11.313Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 4500
+    },
+    "ts": "2026-02-07T09:48:15.804Z",
+    "receivedAt": "2026-02-07T09:48:15.814Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T09:48:16.820Z",
+    "receivedAt": "2026-02-07T09:48:16.830Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 1383
+    },
+    "ts": "2026-02-07T09:48:17.187Z",
+    "receivedAt": "2026-02-07T09:48:17.197Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T09:48:20.138Z",
+    "receivedAt": "2026-02-07T09:48:20.149Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 5102
+    },
+    "ts": "2026-02-07T09:48:22.289Z",
+    "receivedAt": "2026-02-07T09:48:22.298Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 48
+    },
+    "ts": "2026-02-07T09:48:22.338Z",
+    "receivedAt": "2026-02-07T09:48:22.346Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 65
+    },
+    "ts": "2026-02-07T09:48:22.403Z",
+    "receivedAt": "2026-02-07T09:48:22.413Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 67
+    },
+    "ts": "2026-02-07T09:48:22.471Z",
+    "receivedAt": "2026-02-07T09:48:22.479Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 116
+    },
+    "ts": "2026-02-07T09:48:22.587Z",
+    "receivedAt": "2026-02-07T09:48:22.596Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 367
+    },
+    "ts": "2026-02-07T09:48:22.954Z",
+    "receivedAt": "2026-02-07T09:48:22.963Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 3369
+    },
+    "ts": "2026-02-07T09:48:26.323Z",
+    "receivedAt": "2026-02-07T09:48:26.332Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 401
+    },
+    "ts": "2026-02-07T09:48:26.724Z",
+    "receivedAt": "2026-02-07T09:48:26.732Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:48:30.912Z",
+    "receivedAt": "2026-02-07T09:48:30.915Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T09:48:30.933Z",
+    "receivedAt": "2026-02-07T09:48:30.936Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T09:52:37.008Z",
+    "receivedAt": "2026-02-07T09:52:37.060Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:47:20.791Z",
+    "receivedAt": "2026-02-07T11:47:20.848Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:47:20.749Z",
+    "receivedAt": "2026-02-07T11:47:20.850Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T11:47:25.677Z",
+    "receivedAt": "2026-02-07T11:47:25.697Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:47:56.499Z",
+    "receivedAt": "2026-02-07T11:47:56.506Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:47:56.521Z",
+    "receivedAt": "2026-02-07T11:47:56.524Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Enter Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T11:48:00.910Z",
+    "receivedAt": "2026-02-07T11:48:00.924Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:52:26.196Z",
+    "receivedAt": "2026-02-07T11:52:26.201Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:52:26.223Z",
+    "receivedAt": "2026-02-07T11:52:26.232Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:55:21.064Z",
+    "receivedAt": "2026-02-07T11:55:21.132Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T11:55:21.039Z",
+    "receivedAt": "2026-02-07T11:55:21.134Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T11:55:25.541Z",
+    "receivedAt": "2026-02-07T11:55:25.556Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:07:27.057Z",
+    "receivedAt": "2026-02-07T12:07:27.115Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:07:27.032Z",
+    "receivedAt": "2026-02-07T12:07:27.117Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T12:07:31.392Z",
+    "receivedAt": "2026-02-07T12:07:31.409Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:18:30.167Z",
+    "receivedAt": "2026-02-07T12:18:30.228Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:18:30.141Z",
+    "receivedAt": "2026-02-07T12:18:30.230Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T12:18:34.607Z",
+    "receivedAt": "2026-02-07T12:18:34.622Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:23:03.967Z",
+    "receivedAt": "2026-02-07T12:23:04.016Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:23:03.940Z",
+    "receivedAt": "2026-02-07T12:23:04.017Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T12:23:09.189Z",
+    "receivedAt": "2026-02-07T12:23:09.201Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:33:44.757Z",
+    "receivedAt": "2026-02-07T12:33:44.819Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T12:33:44.730Z",
+    "receivedAt": "2026-02-07T12:33:44.820Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T12:33:49.121Z",
+    "receivedAt": "2026-02-07T12:33:49.135Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T13:00:26.451Z",
+    "receivedAt": "2026-02-07T13:00:26.506Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T13:00:26.424Z",
+    "receivedAt": "2026-02-07T13:00:26.507Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T13:00:31.826Z",
+    "receivedAt": "2026-02-07T13:00:31.839Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T13:15:41.252Z",
+    "receivedAt": "2026-02-07T13:15:41.318Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T13:15:41.223Z",
+    "receivedAt": "2026-02-07T13:15:41.319Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T13:15:49.231Z",
+    "receivedAt": "2026-02-07T13:15:49.244Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T14:03:54.143Z",
+    "receivedAt": "2026-02-07T14:03:54.147Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T14:03:54.165Z",
+    "receivedAt": "2026-02-07T14:03:54.168Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 5811
+    },
+    "ts": "2026-02-07T14:03:59.977Z",
+    "receivedAt": "2026-02-07T14:03:59.986Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T14:04:00.038Z",
+    "receivedAt": "2026-02-07T14:04:00.050Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 62
+    },
+    "ts": "2026-02-07T14:04:00.039Z",
+    "receivedAt": "2026-02-07T14:04:00.052Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 82
+    },
+    "ts": "2026-02-07T14:04:00.121Z",
+    "receivedAt": "2026-02-07T14:04:00.132Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T14:04:00.171Z",
+    "receivedAt": "2026-02-07T14:04:00.181Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 83
+    },
+    "ts": "2026-02-07T14:04:00.205Z",
+    "receivedAt": "2026-02-07T14:04:00.213Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 151
+    },
+    "ts": "2026-02-07T14:04:00.356Z",
+    "receivedAt": "2026-02-07T14:04:00.364Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T14:04:01.173Z",
+    "receivedAt": "2026-02-07T14:04:01.181Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 901
+    },
+    "ts": "2026-02-07T14:04:01.257Z",
+    "receivedAt": "2026-02-07T14:04:01.266Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T14:04:01.321Z",
+    "receivedAt": "2026-02-07T14:04:01.331Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 634
+    },
+    "ts": "2026-02-07T14:04:01.891Z",
+    "receivedAt": "2026-02-07T14:04:01.900Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 130
+    },
+    "ts": "2026-02-07T14:04:02.022Z",
+    "receivedAt": "2026-02-07T14:04:02.030Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T14:06:12.879Z",
+    "receivedAt": "2026-02-07T14:06:12.890Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T14:07:04.134Z",
+    "receivedAt": "2026-02-07T14:07:04.184Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T14:07:04.111Z",
+    "receivedAt": "2026-02-07T14:07:04.186Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 18
+    },
+    "ts": "2026-02-07T14:07:04.152Z",
+    "receivedAt": "2026-02-07T14:07:04.189Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T14:07:08.812Z",
+    "receivedAt": "2026-02-07T14:07:08.823Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T15:23:55.307Z",
+    "receivedAt": "2026-02-07T15:23:55.313Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T15:23:55.331Z",
+    "receivedAt": "2026-02-07T15:23:55.335Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T15:24:01.528Z",
+    "receivedAt": "2026-02-07T15:24:01.533Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T15:24:01.546Z",
+    "receivedAt": "2026-02-07T15:24:01.551Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 16673
+    },
+    "ts": "2026-02-07T15:24:18.219Z",
+    "receivedAt": "2026-02-07T15:24:18.228Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T15:24:18.516Z",
+    "receivedAt": "2026-02-07T15:24:18.525Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 315
+    },
+    "ts": "2026-02-07T15:24:18.535Z",
+    "receivedAt": "2026-02-07T15:24:18.542Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 2984
+    },
+    "ts": "2026-02-07T15:24:21.519Z",
+    "receivedAt": "2026-02-07T15:24:21.528Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T15:24:23.716Z",
+    "receivedAt": "2026-02-07T15:24:23.726Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 2315
+    },
+    "ts": "2026-02-07T15:24:23.834Z",
+    "receivedAt": "2026-02-07T15:24:23.842Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 2300
+    },
+    "ts": "2026-02-07T15:24:26.134Z",
+    "receivedAt": "2026-02-07T15:24:26.143Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T15:24:26.482Z",
+    "receivedAt": "2026-02-07T15:24:26.491Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 4834
+    },
+    "ts": "2026-02-07T15:24:30.968Z",
+    "receivedAt": "2026-02-07T15:24:30.977Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T15:24:32.151Z",
+    "receivedAt": "2026-02-07T15:24:32.159Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 3820
+    },
+    "ts": "2026-02-07T15:24:34.788Z",
+    "receivedAt": "2026-02-07T15:24:34.797Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 3048
+    },
+    "ts": "2026-02-07T15:24:37.836Z",
+    "receivedAt": "2026-02-07T15:24:37.847Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 115
+    },
+    "ts": "2026-02-07T15:24:37.951Z",
+    "receivedAt": "2026-02-07T15:24:37.961Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 433
+    },
+    "ts": "2026-02-07T15:24:38.385Z",
+    "receivedAt": "2026-02-07T15:24:38.394Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 100
+    },
+    "ts": "2026-02-07T15:24:38.485Z",
+    "receivedAt": "2026-02-07T15:24:38.493Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 167
+    },
+    "ts": "2026-02-07T15:24:38.652Z",
+    "receivedAt": "2026-02-07T15:24:38.659Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 2835
+    },
+    "ts": "2026-02-07T15:24:41.487Z",
+    "receivedAt": "2026-02-07T15:24:41.495Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 48
+    },
+    "ts": "2026-02-07T15:24:41.535Z",
+    "receivedAt": "2026-02-07T15:24:41.545Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 65
+    },
+    "ts": "2026-02-07T15:24:41.600Z",
+    "receivedAt": "2026-02-07T15:24:41.609Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 67
+    },
+    "ts": "2026-02-07T15:24:41.667Z",
+    "receivedAt": "2026-02-07T15:24:41.677Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 83
+    },
+    "ts": "2026-02-07T15:24:41.751Z",
+    "receivedAt": "2026-02-07T15:24:41.759Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 201
+    },
+    "ts": "2026-02-07T15:24:41.952Z",
+    "receivedAt": "2026-02-07T15:24:41.962Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 1715
+    },
+    "ts": "2026-02-07T15:24:43.668Z",
+    "receivedAt": "2026-02-07T15:24:43.676Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 49
+    },
+    "ts": "2026-02-07T15:24:43.717Z",
+    "receivedAt": "2026-02-07T15:24:43.725Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 51
+    },
+    "ts": "2026-02-07T15:24:43.768Z",
+    "receivedAt": "2026-02-07T15:24:43.776Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 82
+    },
+    "ts": "2026-02-07T15:24:43.850Z",
+    "receivedAt": "2026-02-07T15:24:43.857Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 100
+    },
+    "ts": "2026-02-07T15:24:43.950Z",
+    "receivedAt": "2026-02-07T15:24:43.959Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 218
+    },
+    "ts": "2026-02-07T15:24:44.169Z",
+    "receivedAt": "2026-02-07T15:24:44.177Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T15:24:45.024Z",
+    "receivedAt": "2026-02-07T15:24:45.033Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T18:59:31.689Z",
+    "receivedAt": "2026-02-07T18:59:31.726Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T18:59:31.640Z",
+    "receivedAt": "2026-02-07T18:59:31.728Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 23
+    },
+    "ts": "2026-02-07T18:59:31.712Z",
+    "receivedAt": "2026-02-07T18:59:31.731Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T18:59:37.995Z",
+    "receivedAt": "2026-02-07T18:59:38.004Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T18:59:37.995Z",
+    "receivedAt": "2026-02-07T18:59:38.006Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T18:59:37.995Z",
+    "receivedAt": "2026-02-07T18:59:38.007Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 6366
+    },
+    "ts": "2026-02-07T18:59:38.078Z",
+    "receivedAt": "2026-02-07T18:59:38.084Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 116
+    },
+    "ts": "2026-02-07T18:59:38.194Z",
+    "receivedAt": "2026-02-07T18:59:38.202Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 250
+    },
+    "ts": "2026-02-07T18:59:38.444Z",
+    "receivedAt": "2026-02-07T18:59:38.453Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 216
+    },
+    "ts": "2026-02-07T18:59:38.661Z",
+    "receivedAt": "2026-02-07T18:59:38.669Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 1320
+    },
+    "ts": "2026-02-07T18:59:39.981Z",
+    "receivedAt": "2026-02-07T18:59:39.989Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 67
+    },
+    "ts": "2026-02-07T18:59:40.048Z",
+    "receivedAt": "2026-02-07T18:59:40.055Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 80
+    },
+    "ts": "2026-02-07T18:59:40.128Z",
+    "receivedAt": "2026-02-07T18:59:40.135Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 100
+    },
+    "ts": "2026-02-07T18:59:40.228Z",
+    "receivedAt": "2026-02-07T18:59:40.236Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 183
+    },
+    "ts": "2026-02-07T18:59:40.411Z",
+    "receivedAt": "2026-02-07T18:59:40.418Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 285
+    },
+    "ts": "2026-02-07T18:59:40.696Z",
+    "receivedAt": "2026-02-07T18:59:40.704Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T18:59:40.763Z",
+    "receivedAt": "2026-02-07T18:59:40.770Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 1284
+    },
+    "ts": "2026-02-07T18:59:41.980Z",
+    "receivedAt": "2026-02-07T18:59:41.986Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 84
+    },
+    "ts": "2026-02-07T18:59:42.064Z",
+    "receivedAt": "2026-02-07T18:59:42.071Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 114
+    },
+    "ts": "2026-02-07T18:59:42.178Z",
+    "receivedAt": "2026-02-07T18:59:42.186Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 317
+    },
+    "ts": "2026-02-07T18:59:42.495Z",
+    "receivedAt": "2026-02-07T18:59:42.503Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 382
+    },
+    "ts": "2026-02-07T18:59:42.877Z",
+    "receivedAt": "2026-02-07T18:59:42.885Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 153
+    },
+    "ts": "2026-02-07T18:59:43.031Z",
+    "receivedAt": "2026-02-07T18:59:43.038Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T19:58:22.552Z",
+    "receivedAt": "2026-02-07T19:58:22.565Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:01:51.368Z",
+    "receivedAt": "2026-02-07T20:01:51.371Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:01:51.391Z",
+    "receivedAt": "2026-02-07T20:01:51.395Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:01:57.587Z",
+    "receivedAt": "2026-02-07T20:01:57.601Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:12:28.433Z",
+    "receivedAt": "2026-02-07T20:12:28.438Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:12:28.456Z",
+    "receivedAt": "2026-02-07T20:12:28.462Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 6922
+    },
+    "ts": "2026-02-07T20:12:35.378Z",
+    "receivedAt": "2026-02-07T20:12:35.388Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T20:12:35.511Z",
+    "receivedAt": "2026-02-07T20:12:35.520Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 134
+    },
+    "ts": "2026-02-07T20:12:35.512Z",
+    "receivedAt": "2026-02-07T20:12:35.522Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 333
+    },
+    "ts": "2026-02-07T20:12:35.845Z",
+    "receivedAt": "2026-02-07T20:12:35.853Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T20:12:36.210Z",
+    "receivedAt": "2026-02-07T20:12:36.219Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 400
+    },
+    "ts": "2026-02-07T20:12:36.245Z",
+    "receivedAt": "2026-02-07T20:12:36.254Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 151
+    },
+    "ts": "2026-02-07T20:12:36.397Z",
+    "receivedAt": "2026-02-07T20:12:36.407Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T20:12:36.510Z",
+    "receivedAt": "2026-02-07T20:12:36.519Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 2648
+    },
+    "ts": "2026-02-07T20:12:39.045Z",
+    "receivedAt": "2026-02-07T20:12:39.051Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 148
+    },
+    "ts": "2026-02-07T20:12:39.194Z",
+    "receivedAt": "2026-02-07T20:12:39.204Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 1767
+    },
+    "ts": "2026-02-07T20:12:40.961Z",
+    "receivedAt": "2026-02-07T20:12:40.970Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 3550
+    },
+    "ts": "2026-02-07T20:12:44.511Z",
+    "receivedAt": "2026-02-07T20:12:44.519Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 84
+    },
+    "ts": "2026-02-07T20:12:44.595Z",
+    "receivedAt": "2026-02-07T20:12:44.604Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 83
+    },
+    "ts": "2026-02-07T20:12:44.678Z",
+    "receivedAt": "2026-02-07T20:12:44.687Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 218
+    },
+    "ts": "2026-02-07T20:12:44.896Z",
+    "receivedAt": "2026-02-07T20:12:44.903Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T20:12:45.262Z",
+    "receivedAt": "2026-02-07T20:12:45.272Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:14:22.252Z",
+    "receivedAt": "2026-02-07T20:14:22.273Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:15:09.618Z",
+    "receivedAt": "2026-02-07T20:15:09.671Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:15:09.595Z",
+    "receivedAt": "2026-02-07T20:15:09.673Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:15:11.054Z",
+    "receivedAt": "2026-02-07T20:15:11.060Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:15:11.080Z",
+    "receivedAt": "2026-02-07T20:15:11.084Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T20:15:11.144Z",
+    "receivedAt": "2026-02-07T20:15:11.149Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T20:15:11.144Z",
+    "receivedAt": "2026-02-07T20:15:11.150Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T20:15:11.144Z",
+    "receivedAt": "2026-02-07T20:15:11.150Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T20:15:11.144Z",
+    "receivedAt": "2026-02-07T20:15:11.150Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 5081
+    },
+    "ts": "2026-02-07T20:15:16.161Z",
+    "receivedAt": "2026-02-07T20:15:16.172Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 34
+    },
+    "ts": "2026-02-07T20:15:16.195Z",
+    "receivedAt": "2026-02-07T20:15:16.203Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 66
+    },
+    "ts": "2026-02-07T20:15:16.261Z",
+    "receivedAt": "2026-02-07T20:15:16.269Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 83
+    },
+    "ts": "2026-02-07T20:15:16.344Z",
+    "receivedAt": "2026-02-07T20:15:16.353Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 116
+    },
+    "ts": "2026-02-07T20:15:16.461Z",
+    "receivedAt": "2026-02-07T20:15:16.471Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 403
+    },
+    "ts": "2026-02-07T20:15:16.864Z",
+    "receivedAt": "2026-02-07T20:15:16.872Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:15:19.236Z",
+    "receivedAt": "2026-02-07T20:15:19.250Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:27:47.402Z",
+    "receivedAt": "2026-02-07T20:27:47.465Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:27:47.427Z",
+    "receivedAt": "2026-02-07T20:27:47.472Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:28:09.827Z",
+    "receivedAt": "2026-02-07T20:28:09.841Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:40:22.584Z",
+    "receivedAt": "2026-02-07T20:40:22.750Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:40:30.984Z",
+    "receivedAt": "2026-02-07T20:40:31.003Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:40:44.050Z",
+    "receivedAt": "2026-02-07T20:40:44.066Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:42:06.514Z",
+    "receivedAt": "2026-02-07T20:42:06.593Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:42:06.487Z",
+    "receivedAt": "2026-02-07T20:42:06.595Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:42:11.400Z",
+    "receivedAt": "2026-02-07T20:42:11.418Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:50:37.313Z",
+    "receivedAt": "2026-02-07T20:50:37.318Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:50:37.335Z",
+    "receivedAt": "2026-02-07T20:50:37.338Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:51:12.483Z",
+    "receivedAt": "2026-02-07T20:51:12.574Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T20:51:12.458Z",
+    "receivedAt": "2026-02-07T20:51:12.575Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 4166
+    },
+    "ts": "2026-02-07T20:51:16.649Z",
+    "receivedAt": "2026-02-07T20:51:16.662Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T20:51:16.713Z",
+    "receivedAt": "2026-02-07T20:51:16.732Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 66
+    },
+    "ts": "2026-02-07T20:51:16.715Z",
+    "receivedAt": "2026-02-07T20:51:16.733Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 80
+    },
+    "ts": "2026-02-07T20:51:16.796Z",
+    "receivedAt": "2026-02-07T20:51:16.803Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T20:51:16.862Z",
+    "receivedAt": "2026-02-07T20:51:16.870Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 84
+    },
+    "ts": "2026-02-07T20:51:16.880Z",
+    "receivedAt": "2026-02-07T20:51:16.888Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 151
+    },
+    "ts": "2026-02-07T20:51:17.031Z",
+    "receivedAt": "2026-02-07T20:51:17.042Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T20:51:17.196Z",
+    "receivedAt": "2026-02-07T20:51:17.206Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 268
+    },
+    "ts": "2026-02-07T20:51:17.300Z",
+    "receivedAt": "2026-02-07T20:51:17.309Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T20:51:17.346Z",
+    "receivedAt": "2026-02-07T20:51:17.355Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 1850
+    },
+    "ts": "2026-02-07T20:51:19.150Z",
+    "receivedAt": "2026-02-07T20:51:19.158Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 47
+    },
+    "ts": "2026-02-07T20:51:19.197Z",
+    "receivedAt": "2026-02-07T20:51:19.207Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 67
+    },
+    "ts": "2026-02-07T20:51:19.264Z",
+    "receivedAt": "2026-02-07T20:51:19.273Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 99
+    },
+    "ts": "2026-02-07T20:51:19.363Z",
+    "receivedAt": "2026-02-07T20:51:19.372Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 166
+    },
+    "ts": "2026-02-07T20:51:19.529Z",
+    "receivedAt": "2026-02-07T20:51:19.537Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 369
+    },
+    "ts": "2026-02-07T20:51:19.899Z",
+    "receivedAt": "2026-02-07T20:51:19.908Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T20:51:21.387Z",
+    "receivedAt": "2026-02-07T20:51:21.398Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T21:52:08.370Z",
+    "receivedAt": "2026-02-07T21:52:08.379Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T21:52:08.400Z",
+    "receivedAt": "2026-02-07T21:52:08.407Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T21:52:43.491Z",
+    "receivedAt": "2026-02-07T21:52:43.499Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T21:52:43.524Z",
+    "receivedAt": "2026-02-07T21:52:43.531Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 6225
+    },
+    "ts": "2026-02-07T21:52:49.749Z",
+    "receivedAt": "2026-02-07T21:52:49.757Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T21:53:06.466Z",
+    "receivedAt": "2026-02-07T21:53:06.474Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 16734
+    },
+    "ts": "2026-02-07T21:53:06.484Z",
+    "receivedAt": "2026-02-07T21:53:06.492Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 2096
+    },
+    "ts": "2026-02-07T21:53:08.581Z",
+    "receivedAt": "2026-02-07T21:53:08.592Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 3067
+    },
+    "ts": "2026-02-07T21:53:11.648Z",
+    "receivedAt": "2026-02-07T21:53:11.657Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 2516
+    },
+    "ts": "2026-02-07T21:53:14.164Z",
+    "receivedAt": "2026-02-07T21:53:14.174Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T21:53:14.247Z",
+    "receivedAt": "2026-02-07T21:53:14.256Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 134
+    },
+    "ts": "2026-02-07T21:53:14.298Z",
+    "receivedAt": "2026-02-07T21:53:14.305Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 2702
+    },
+    "ts": "2026-02-07T21:53:17.000Z",
+    "receivedAt": "2026-02-07T21:53:17.008Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T21:53:17.364Z",
+    "receivedAt": "2026-02-07T21:53:17.372Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 4848
+    },
+    "ts": "2026-02-07T21:53:21.848Z",
+    "receivedAt": "2026-02-07T21:53:21.856Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T21:53:21.998Z",
+    "receivedAt": "2026-02-07T21:53:22.006Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 1382
+    },
+    "ts": "2026-02-07T21:53:23.231Z",
+    "receivedAt": "2026-02-07T21:53:23.239Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 3001
+    },
+    "ts": "2026-02-07T21:53:26.232Z",
+    "receivedAt": "2026-02-07T21:53:26.240Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 1566
+    },
+    "ts": "2026-02-07T21:53:27.798Z",
+    "receivedAt": "2026-02-07T21:53:27.805Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 84
+    },
+    "ts": "2026-02-07T21:53:27.882Z",
+    "receivedAt": "2026-02-07T21:53:27.889Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 66
+    },
+    "ts": "2026-02-07T21:53:27.948Z",
+    "receivedAt": "2026-02-07T21:53:27.956Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 116
+    },
+    "ts": "2026-02-07T21:53:28.064Z",
+    "receivedAt": "2026-02-07T21:53:28.073Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 233
+    },
+    "ts": "2026-02-07T21:53:28.298Z",
+    "receivedAt": "2026-02-07T21:53:28.306Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 383
+    },
+    "ts": "2026-02-07T21:53:28.681Z",
+    "receivedAt": "2026-02-07T21:53:28.689Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T21:53:29.672Z",
+    "receivedAt": "2026-02-07T21:53:29.678Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 266065
+    },
+    "ts": "2026-02-07T21:56:34.465Z",
+    "receivedAt": "2026-02-07T21:56:34.475Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T21:56:35.164Z",
+    "receivedAt": "2026-02-07T21:56:35.175Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 700
+    },
+    "ts": "2026-02-07T21:56:35.165Z",
+    "receivedAt": "2026-02-07T21:56:35.176Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 100
+    },
+    "ts": "2026-02-07T21:56:35.265Z",
+    "receivedAt": "2026-02-07T21:56:35.272Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T21:56:35.315Z",
+    "receivedAt": "2026-02-07T21:56:35.321Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 67
+    },
+    "ts": "2026-02-07T21:56:35.332Z",
+    "receivedAt": "2026-02-07T21:56:35.339Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 100
+    },
+    "ts": "2026-02-07T21:56:35.432Z",
+    "receivedAt": "2026-02-07T21:56:35.439Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T21:56:35.481Z",
+    "receivedAt": "2026-02-07T21:56:35.489Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 250
+    },
+    "ts": "2026-02-07T21:56:35.682Z",
+    "receivedAt": "2026-02-07T21:56:35.689Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 266
+    },
+    "ts": "2026-02-07T21:56:35.948Z",
+    "receivedAt": "2026-02-07T21:56:35.956Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 17
+    },
+    "ts": "2026-02-07T21:56:35.965Z",
+    "receivedAt": "2026-02-07T21:56:35.973Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 66
+    },
+    "ts": "2026-02-07T21:56:36.032Z",
+    "receivedAt": "2026-02-07T21:56:36.039Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 66
+    },
+    "ts": "2026-02-07T21:56:36.098Z",
+    "receivedAt": "2026-02-07T21:56:36.106Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 117
+    },
+    "ts": "2026-02-07T21:56:36.215Z",
+    "receivedAt": "2026-02-07T21:56:36.222Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Enter Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T22:09:54.192Z",
+    "receivedAt": "2026-02-07T22:09:54.219Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:11:16.535Z",
+    "receivedAt": "2026-02-07T22:11:16.541Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:11:16.560Z",
+    "receivedAt": "2026-02-07T22:11:16.564Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Enter Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T22:11:21.109Z",
+    "receivedAt": "2026-02-07T22:11:21.116Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:12:09.924Z",
+    "receivedAt": "2026-02-07T22:12:09.932Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:12:09.963Z",
+    "receivedAt": "2026-02-07T22:12:09.970Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T22:12:14.542Z",
+    "receivedAt": "2026-02-07T22:12:14.553Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:24:54.706Z",
+    "receivedAt": "2026-02-07T22:24:54.710Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:24:54.728Z",
+    "receivedAt": "2026-02-07T22:24:54.732Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T22:24:58.795Z",
+    "receivedAt": "2026-02-07T22:24:58.807Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:51:06.829Z",
+    "receivedAt": "2026-02-07T22:51:06.833Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-07T22:51:06.851Z",
+    "receivedAt": "2026-02-07T22:51:06.855Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 3826
+    },
+    "ts": "2026-02-07T22:51:10.677Z",
+    "receivedAt": "2026-02-07T22:51:10.685Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-07T22:51:10.775Z",
+    "receivedAt": "2026-02-07T22:51:10.785Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 99
+    },
+    "ts": "2026-02-07T22:51:10.776Z",
+    "receivedAt": "2026-02-07T22:51:10.786Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 167
+    },
+    "ts": "2026-02-07T22:51:10.943Z",
+    "receivedAt": "2026-02-07T22:51:10.952Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-07T22:51:11.892Z",
+    "receivedAt": "2026-02-07T22:51:11.902Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 4400
+    },
+    "ts": "2026-02-07T22:51:15.343Z",
+    "receivedAt": "2026-02-07T22:51:15.352Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 1616
+    },
+    "ts": "2026-02-07T22:51:16.959Z",
+    "receivedAt": "2026-02-07T22:51:16.969Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 1400
+    },
+    "ts": "2026-02-07T22:51:18.359Z",
+    "receivedAt": "2026-02-07T22:51:18.367Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 1016
+    },
+    "ts": "2026-02-07T22:51:19.375Z",
+    "receivedAt": "2026-02-07T22:51:19.384Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-07T22:51:19.841Z",
+    "receivedAt": "2026-02-07T22:51:19.851Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 10851
+    },
+    "ts": "2026-02-07T22:51:30.226Z",
+    "receivedAt": "2026-02-07T22:51:30.237Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-07T22:51:30.292Z",
+    "receivedAt": "2026-02-07T22:51:30.301Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 418
+    },
+    "ts": "2026-02-07T22:51:30.645Z",
+    "receivedAt": "2026-02-07T22:51:30.654Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 81
+    },
+    "ts": "2026-02-07T22:51:30.726Z",
+    "receivedAt": "2026-02-07T22:51:30.735Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 116
+    },
+    "ts": "2026-02-07T22:51:30.842Z",
+    "receivedAt": "2026-02-07T22:51:30.850Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 333
+    },
+    "ts": "2026-02-07T22:51:31.175Z",
+    "receivedAt": "2026-02-07T22:51:31.184Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 76618
+    },
+    "ts": "2026-02-07T22:52:47.793Z",
+    "receivedAt": "2026-02-07T22:52:47.805Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 517
+    },
+    "ts": "2026-02-07T22:52:48.310Z",
+    "receivedAt": "2026-02-07T22:52:48.319Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 14199
+    },
+    "ts": "2026-02-07T22:53:02.509Z",
+    "receivedAt": "2026-02-07T22:53:02.520Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 650
+    },
+    "ts": "2026-02-07T22:53:03.159Z",
+    "receivedAt": "2026-02-07T22:53:03.169Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 10618
+    },
+    "ts": "2026-02-07T22:53:13.777Z",
+    "receivedAt": "2026-02-07T22:53:13.787Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 900
+    },
+    "ts": "2026-02-07T22:53:14.677Z",
+    "receivedAt": "2026-02-07T22:53:14.687Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 233883
+    },
+    "ts": "2026-02-07T22:57:08.560Z",
+    "receivedAt": "2026-02-07T22:57:08.572Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 12650
+    },
+    "ts": "2026-02-07T22:57:21.210Z",
+    "receivedAt": "2026-02-07T22:57:21.220Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 2466
+    },
+    "ts": "2026-02-07T22:57:23.676Z",
+    "receivedAt": "2026-02-07T22:57:23.686Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 409000
+    },
+    "ts": "2026-02-07T23:04:12.676Z",
+    "receivedAt": "2026-02-07T23:04:12.694Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 166
+    },
+    "ts": "2026-02-07T23:04:12.843Z",
+    "receivedAt": "2026-02-07T23:04:12.851Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 683
+    },
+    "ts": "2026-02-07T23:04:13.526Z",
+    "receivedAt": "2026-02-07T23:04:13.534Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 3333
+    },
+    "ts": "2026-02-07T23:04:16.860Z",
+    "receivedAt": "2026-02-07T23:04:16.869Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 249
+    },
+    "ts": "2026-02-07T23:04:17.110Z",
+    "receivedAt": "2026-02-07T23:04:17.118Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 3100
+    },
+    "ts": "2026-02-07T23:04:20.210Z",
+    "receivedAt": "2026-02-07T23:04:20.219Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 918
+    },
+    "ts": "2026-02-07T23:04:21.128Z",
+    "receivedAt": "2026-02-07T23:04:21.138Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 65
+    },
+    "ts": "2026-02-07T23:04:21.194Z",
+    "receivedAt": "2026-02-07T23:04:21.204Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 67
+    },
+    "ts": "2026-02-07T23:04:21.261Z",
+    "receivedAt": "2026-02-07T23:04:21.271Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 99
+    },
+    "ts": "2026-02-07T23:04:21.360Z",
+    "receivedAt": "2026-02-07T23:04:21.370Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 166
+    },
+    "ts": "2026-02-07T23:04:21.527Z",
+    "receivedAt": "2026-02-07T23:04:21.537Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 383
+    },
+    "ts": "2026-02-07T23:04:21.910Z",
+    "receivedAt": "2026-02-07T23:04:21.919Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 101100
+    },
+    "ts": "2026-02-07T23:06:03.011Z",
+    "receivedAt": "2026-02-07T23:06:03.019Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 1051
+    },
+    "ts": "2026-02-07T23:06:04.062Z",
+    "receivedAt": "2026-02-07T23:06:04.072Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 92966
+    },
+    "ts": "2026-02-07T23:07:37.028Z",
+    "receivedAt": "2026-02-07T23:07:37.040Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 1634
+    },
+    "ts": "2026-02-07T23:07:38.662Z",
+    "receivedAt": "2026-02-07T23:07:38.671Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 2582
+    },
+    "ts": "2026-02-07T23:07:41.244Z",
+    "receivedAt": "2026-02-07T23:07:41.254Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 549
+    },
+    "ts": "2026-02-07T23:07:41.794Z",
+    "receivedAt": "2026-02-07T23:07:41.802Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 1186
+    },
+    "ts": "2026-02-07T23:07:42.980Z",
+    "receivedAt": "2026-02-07T23:07:42.991Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 4915
+    },
+    "ts": "2026-02-07T23:07:47.895Z",
+    "receivedAt": "2026-02-07T23:07:47.905Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-07T23:15:29.120Z",
+    "receivedAt": "2026-02-07T23:15:29.321Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-08T08:53:59.950Z",
+    "receivedAt": "2026-02-08T08:54:00.013Z"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "path": "/"
+    },
+    "ts": "2026-02-08T08:53:59.949Z",
+    "receivedAt": "2026-02-08T08:54:00.015Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 9387
+    },
+    "ts": "2026-02-08T08:54:09.337Z",
+    "receivedAt": "2026-02-08T08:54:09.351Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 25
+    },
+    "ts": "2026-02-08T08:54:09.587Z",
+    "receivedAt": "2026-02-08T08:54:09.599Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 283
+    },
+    "ts": "2026-02-08T08:54:09.621Z",
+    "receivedAt": "2026-02-08T08:54:09.631Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 2366
+    },
+    "ts": "2026-02-08T08:54:11.987Z",
+    "receivedAt": "2026-02-08T08:54:12.000Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "home",
+      "ms": 7316
+    },
+    "ts": "2026-02-08T08:54:19.303Z",
+    "receivedAt": "2026-02-08T08:54:19.315Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 1199
+    },
+    "ts": "2026-02-08T08:54:20.503Z",
+    "receivedAt": "2026-02-08T08:54:20.516Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 4749
+    },
+    "ts": "2026-02-08T08:54:25.253Z",
+    "receivedAt": "2026-02-08T08:54:25.264Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 50
+    },
+    "ts": "2026-02-08T08:54:25.552Z",
+    "receivedAt": "2026-02-08T08:54:25.562Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 1017
+    },
+    "ts": "2026-02-08T08:54:26.270Z",
+    "receivedAt": "2026-02-08T08:54:26.280Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 235
+    },
+    "ts": "2026-02-08T08:54:26.505Z",
+    "receivedAt": "2026-02-08T08:54:26.516Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 75
+    },
+    "ts": "2026-02-08T08:54:27.688Z",
+    "receivedAt": "2026-02-08T08:54:27.701Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 1549
+    },
+    "ts": "2026-02-08T08:54:28.054Z",
+    "receivedAt": "2026-02-08T08:54:28.067Z"
+  },
+  {
+    "event": "scroll_depth",
+    "payload": {
+      "value": 100
+    },
+    "ts": "2026-02-08T08:54:29.070Z",
+    "receivedAt": "2026-02-08T08:54:29.079Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "contact",
+      "ms": 3435
+    },
+    "ts": "2026-02-08T08:54:31.490Z",
+    "receivedAt": "2026-02-08T08:54:31.502Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "pricing",
+      "ms": 30
+    },
+    "ts": "2026-02-08T08:54:31.520Z",
+    "receivedAt": "2026-02-08T08:54:31.529Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "security",
+      "ms": 33
+    },
+    "ts": "2026-02-08T08:54:31.553Z",
+    "receivedAt": "2026-02-08T08:54:31.560Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "use-cases",
+      "ms": 67
+    },
+    "ts": "2026-02-08T08:54:31.620Z",
+    "receivedAt": "2026-02-08T08:54:31.629Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "features",
+      "ms": 66
+    },
+    "ts": "2026-02-08T08:54:31.686Z",
+    "receivedAt": "2026-02-08T08:54:31.695Z"
+  },
+  {
+    "event": "section_time",
+    "payload": {
+      "section": "product",
+      "ms": 134
+    },
+    "ts": "2026-02-08T08:54:31.820Z",
+    "receivedAt": "2026-02-08T08:54:31.831Z"
+  },
+  {
+    "event": "console_bay_click",
+    "payload": {
+      "text": "Console Bay",
+      "href": "http://localhost:5173/?mode=login"
+    },
+    "ts": "2026-02-08T08:54:37.479Z",
+    "receivedAt": "2026-02-08T08:54:37.497Z"
+  }
+]

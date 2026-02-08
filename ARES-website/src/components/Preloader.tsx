@@ -1,0 +1,33 @@
+import { useEffect } from "react";
+
+type PreloaderProps = {
+  onDone: () => void;
+};
+
+export default function Preloader({ onDone }: PreloaderProps) {
+  useEffect(() => {
+    const timer = setTimeout(() => onDone(), 3000);
+    return () => clearTimeout(timer);
+  }, [onDone]);
+
+  const label = "A.R.E.S. Loading...";
+  const characters = Array.from(label);
+
+  return (
+    <div className="loader-screen">
+      <div className="loader-glass">
+        <div className="loader-text-line">
+          {characters.map((char, index) => (
+            <span
+              key={`${char}-${index}`}
+              className="loader-letter"
+              style={{ "--delay": `${index * 0.08}s` } as Record<string, string>}
+            >
+              {char === " " ? "\u00a0" : char}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
