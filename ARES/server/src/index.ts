@@ -24,18 +24,47 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT ? Number(process.env.PORT) : 8787;
 const isDev = process.env.NODE_ENV !== "production";
-const allowedOrigins = (process.env.CORS_ORIGIN ?? "https://aresai-production.web.app,https://aresai.web.app")
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+const defaultCorsOrigins = "https://aresai-production.web.app,https://aresai.web.app";
+
+function normalizeOriginValue(value: string): string | null {
+  const trimmed = value.trim().replace(/\/+$/, "");
+  if (!trimmed) return null;
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
+  try {
+    return new URL(withProtocol).origin.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+const allowedOriginEntries = Array.from(
+  new Set(
+    (process.env.CORS_ORIGIN ?? defaultCorsOrigins)
+      .split(",")
+      .map((origin) => normalizeOriginValue(origin))
+      .filter((origin): origin is string => Boolean(origin))
+  )
+).map((origin) => ({
+  origin,
+  hostname: new URL(origin).hostname.toLowerCase()
+}));
+
+function isAllowedOrigin(origin: string): boolean {
+  const normalized = normalizeOriginValue(origin);
+  if (!normalized) return false;
+  const hostname = new URL(normalized).hostname.toLowerCase();
+  return allowedOriginEntries.some(
+    (allowed) => allowed.origin === normalized || allowed.hostname === hostname
+  );
+}
 
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
       if (isDev) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
-      return callback(new Error("Not allowed by CORS"));
+      if (isAllowedOrigin(origin)) return callback(null, true);
+      return callback(null, false);
     },
     credentials: true
   })

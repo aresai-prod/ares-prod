@@ -32,23 +32,55 @@ const router = Router();
 function getAppOrigins(): string[] {
   const fallback = "https://aresai-production.web.app,https://aresai.web.app";
   const raw = process.env.APP_ORIGIN ?? fallback;
-  return raw
+  const origins = raw
     .split(",")
     .map((entry) => entry.trim())
     .filter(Boolean);
+  return origins.length ? origins : fallback.split(",");
+}
+
+function normalizeOriginValue(value: string): string | null {
+  const trimmed = value.trim().replace(/\/+$/, "");
+  if (!trimmed) return null;
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
+  try {
+    return new URL(withProtocol).origin;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeConfiguredOrigins(origins: string[]) {
+  return origins
+    .map((origin) => normalizeOriginValue(origin))
+    .filter((origin): origin is string => Boolean(origin))
+    .map((origin) => ({
+      origin,
+      hostname: new URL(origin).hostname.toLowerCase()
+    }));
+}
+
+function toProductionOrigin(origin: string): string {
+  if (process.env.NODE_ENV !== "production") return origin;
+  return origin.startsWith("http://") ? `https://${origin.slice("http://".length)}` : origin;
 }
 
 function normalizeRedirect(raw: string | undefined): string {
-  const appOrigins = getAppOrigins();
-  const defaultOrigin = appOrigins[0];
+  const configuredOrigins = normalizeConfiguredOrigins(getAppOrigins());
+  const defaultOrigin = toProductionOrigin(configuredOrigins[0]?.origin ?? "https://aresai-production.web.app");
   if (!raw) return defaultOrigin;
   try {
-    const url = new URL(raw);
+    const normalized = normalizeOriginValue(raw);
+    if (!normalized) return defaultOrigin;
+    const url = new URL(normalized);
     if (process.env.NODE_ENV !== "production") {
       return url.origin;
     }
-    if (!appOrigins.includes(url.origin)) return defaultOrigin;
-    return url.origin;
+    const allowed = configuredOrigins.some(
+      (entry) => entry.origin === url.origin || entry.hostname === url.hostname.toLowerCase()
+    );
+    if (!allowed) return defaultOrigin;
+    return toProductionOrigin(url.origin);
   } catch {
     return defaultOrigin;
   }

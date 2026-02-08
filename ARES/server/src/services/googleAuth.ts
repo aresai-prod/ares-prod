@@ -5,10 +5,26 @@ export type GoogleProfile = {
   name: string;
 };
 
+function resolveGoogleRedirectUri(): string {
+  const raw = (process.env.GOOGLE_REDIRECT_URI ?? "").trim();
+  if (!raw) return "";
+  const withProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(raw) ? raw : `https://${raw}`;
+  try {
+    const url = new URL(withProtocol);
+    if (!url.pathname || url.pathname === "/") {
+      url.pathname = "/api/auth/google/callback";
+    }
+    url.hash = "";
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return raw;
+  }
+}
+
 function getClient(): OAuth2Client {
   const clientId = process.env.GOOGLE_CLIENT_ID ?? "";
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET ?? "";
-  const redirectUri = process.env.GOOGLE_REDIRECT_URI ?? "";
+  const redirectUri = resolveGoogleRedirectUri();
   if (!clientId || !clientSecret || !redirectUri) {
     throw new Error("Google OAuth is not configured. Set GOOGLE_CLIENT_ID/SECRET/REDIRECT_URI.");
   }
@@ -18,7 +34,7 @@ function getClient(): OAuth2Client {
 export function getGoogleAuthUrl(appOrigin: string): string {
   const client = getClient();
   const scopes = ["openid", "email", "profile"];
-  const redirectUri = process.env.GOOGLE_REDIRECT_URI;
+  const redirectUri = resolveGoogleRedirectUri();
   return client.generateAuthUrl({
     scope: scopes,
     redirect_uri: redirectUri,
@@ -31,7 +47,7 @@ export function getGoogleAuthUrl(appOrigin: string): string {
 
 export async function getGoogleProfile(code: string): Promise<GoogleProfile> {
   const client = getClient();
-  const redirectUri = process.env.GOOGLE_REDIRECT_URI;
+  const redirectUri = resolveGoogleRedirectUri();
   const { tokens } = await client.getToken({ code, redirect_uri: redirectUri });
   if (!tokens.id_token) {
     throw new Error("Missing id_token from Google.");

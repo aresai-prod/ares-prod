@@ -240,10 +240,15 @@ export default function App() {
             new Promise<T>((_, reject) => setTimeout(() => reject(new Error("timeout")), ms))
           ]);
         try {
-          const status = await timeout(fetchGoogleStatus(), 2500);
+          const status = await timeout(fetchGoogleStatus(), 7000);
           if (active) setGoogleStatus(status.enabled ? "enabled" : "disabled");
         } catch {
-          if (active) setGoogleStatus("unreachable");
+          try {
+            const retryStatus = await timeout(fetchGoogleStatus(), 7000);
+            if (active) setGoogleStatus(retryStatus.enabled ? "enabled" : "disabled");
+          } catch {
+            if (active) setGoogleStatus("unreachable");
+          }
         }
         const token = getAuthToken();
         if (!token) {
