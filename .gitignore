@@ -1,0 +1,22 @@
+cat > .gitignore << 'EOF'
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+.next/
+.env
+.env.local
+.env.*.local
+
+# Firebase
+.firebase/
+.firebaserc
+
+# OS
+.DS_Store
+
+# Large files
+*.log
+EOF
