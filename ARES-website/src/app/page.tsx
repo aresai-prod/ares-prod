@@ -5,8 +5,8 @@ import Preloader from "../components/Preloader";
 import ChatWidget from "../components/ChatWidget";
 import UseCaseModal from "../components/UseCaseModal";
 
-const consoleUrl = process.env.NEXT_PUBLIC_CONSOLE_URL ?? "http://localhost:5173/?mode=login";
-const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8787/api";
+const consoleUrl = process.env.NEXT_PUBLIC_CONSOLE_URL ?? "https://aresai-production.web.app/?mode=login";
+const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? "https://ares-prod-ce9q.onrender.com/api";
 
 const useCases = [
   {

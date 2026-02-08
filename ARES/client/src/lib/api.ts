@@ -18,10 +18,11 @@ import type {
   KnowledgeQuality
 } from "./types";
 
-const rawApiBase = import.meta.env.VITE_API_BASE ?? "http://localhost:8787/api";
+const PROD_API_BASE = "https://ares-prod-ce9q.onrender.com/api";
+const rawApiBase = import.meta.env.VITE_API_BASE ?? PROD_API_BASE;
 const normalizedBase = rawApiBase.endsWith("/api") ? rawApiBase : `${rawApiBase}/api`;
 export const API_BASE = normalizedBase;
-const LOCAL_FALLBACK_BASE = "http://localhost:8787/api";
+const LOCAL_FALLBACK_BASE = PROD_API_BASE;
 
 function getDirectApiBase(): string {
   if (API_BASE.startsWith("http")) return API_BASE;
@@ -140,10 +141,10 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
       try {
         res = await fetch(`${fallbackBase}${path}`, fetchOptions);
       } catch {
-        throw new Error("Network error. Ensure the API server is running on http://localhost:8787.");
+        throw new Error("Network error. Ensure the API server is reachable.");
       }
     } else {
-      throw new Error("Network error. Ensure the API server is running on http://localhost:8787.");
+      throw new Error("Network error. Ensure the API server is reachable.");
     }
   }
 

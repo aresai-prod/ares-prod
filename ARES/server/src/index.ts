@@ -23,7 +23,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT ? Number(process.env.PORT) : 8787;
 const isDev = process.env.NODE_ENV !== "production";
-const allowedOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5173,http://localhost:5174,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:5174,http://127.0.0.1:3000")
+const allowedOrigins = (process.env.CORS_ORIGIN ?? "https://aresai-production.web.app,https://aresai.web.app")
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
@@ -45,6 +45,10 @@ app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", time: new Date().toISOString() });
 });
 
+app.get("/healthz", (_req, res) => {
+  res.status(200).send("ok");
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/org", orgRoutes);
@@ -64,5 +68,5 @@ app.use("/api/concierge", conciergeRoutes);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`ARES server running at http://localhost:${port}`);
+  console.log(`ARES server running on port ${port}`);
 });

@@ -21,7 +21,7 @@ export default function AuthScreen({
   error
 }: AuthScreenProps) {
   const websiteUrl =
-    (import.meta.env.VITE_WEBSITE_URL as string | undefined) ?? "http://localhost:3000";
+    (import.meta.env.VITE_WEBSITE_URL as string | undefined) ?? "https://aresai.web.app";
   const [mode, setMode] = useState<"login" | "signup" | "reset">(() => {
     if (typeof window !== "undefined") {
       const queryMode = new URLSearchParams(window.location.search).get("mode");
@@ -160,7 +160,7 @@ export default function AuthScreen({
         )}
         {googleStatus === "unreachable" && (
           <div className="text-xs text-muted">
-            Backend is unreachable. Start the API server on `http://localhost:8787`.
+            Backend is unreachable. Check API availability and CORS settings.
           </div>
         )}
         {mode !== "reset" && (

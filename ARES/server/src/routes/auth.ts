@@ -30,7 +30,7 @@ import type { Organization, UserRecord } from "../models/types.js";
 const router = Router();
 
 function getAppOrigins(): string[] {
-  const fallback = "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174";
+  const fallback = "https://aresai-production.web.app,https://aresai.web.app";
   const raw = process.env.APP_ORIGIN ?? fallback;
   return raw
     .split(",")
