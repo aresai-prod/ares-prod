@@ -1,12 +1,19 @@
-cat > .gitignore << 'EOF'
+# NEVER commit dependencies
 node_modules/
+
+# Build outputs
 dist/
 build/
 .next/
+
+# Env files
 .env
 .env.local
 .env.*
+
+# Firebase junk
 .firebase/
 .firebaserc
+
+# OS files
 .DS_Store
-EOF
