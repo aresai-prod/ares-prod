@@ -474,11 +474,9 @@ export default function App() {
     try {
       const updated = await updateKnowledge(activePodId, next);
       setKnowledge(updated);
-      if (org?.accountType === "BUSINESS") {
-        const quality = await fetchKnowledgeQuality(activePodId).catch(() => null);
-        if (quality) {
-          setKnowledgeQuality(quality.quality);
-        }
+      const quality = await fetchKnowledgeQuality(activePodId).catch(() => null);
+      if (quality) {
+        setKnowledgeQuality(quality.quality);
       }
       void trackEvent("knowledge_saved", {}).catch(() => {});
     } catch (err) {
@@ -491,6 +489,7 @@ export default function App() {
   async function handleEvaluateQuality() {
     if (!activePodId) return;
     setTasking(true);
+    setError(null);
     try {
       const quality = await evaluateKnowledgeQuality(activePodId);
       setKnowledgeQuality(quality.quality);
@@ -748,6 +747,7 @@ export default function App() {
 
           {activePanel !== "chat" && (
             <div className="panel-shell">
+              {error && <div className="error-banner" style={{ margin: "12px 12px 0" }}>{error}</div>}
               {activePanel === "knowledge" && (
                 <KnowledgePanel
                   pods={pods}

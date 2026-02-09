@@ -133,8 +133,8 @@ export default function SideNav({
         <div className="account-meta">
           <div className="account-name">{user?.name ?? "Account"}</div>
           <div className="account-email">{user?.email ?? "Manage profile"}</div>
+          <div className="account-badge">{licenseLabel}</div>
         </div>
-        <div className="account-badge">{licenseLabel}</div>
       </button>
     </aside>
   );

@@ -25,6 +25,12 @@ const app = express();
 const port = process.env.PORT ? Number(process.env.PORT) : 8787;
 const isDev = process.env.NODE_ENV !== "production";
 const defaultCorsOrigins = "https://aresai-production.web.app,https://aresai.web.app";
+const alwaysAllowedOrigins = [
+  "https://aresai-production.web.app",
+  "https://aresai.web.app",
+  "https://aresai-production.firebaseapp.com",
+  "https://aresai.firebaseapp.com"
+];
 
 function normalizeOriginValue(value: string): string | null {
   const trimmed = value.trim().replace(/\/+$/, "");
@@ -39,7 +45,7 @@ function normalizeOriginValue(value: string): string | null {
 
 const allowedOriginEntries = Array.from(
   new Set(
-    (process.env.CORS_ORIGIN ?? defaultCorsOrigins)
+    `${defaultCorsOrigins},${process.env.CORS_ORIGIN ?? ""},${alwaysAllowedOrigins.join(",")}`
       .split(",")
       .map((origin) => normalizeOriginValue(origin))
       .filter((origin): origin is string => Boolean(origin))

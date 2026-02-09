@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import AnalyticsTracker from "../components/AnalyticsTracker";
 
-const spaceGrotesk = Space_Grotesk({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
   display: "swap"
 });
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={spaceGrotesk.className}>
+    <html lang="en" className={notoSans.className}>
       <body>
         <AnalyticsTracker />
         {children}

@@ -10,16 +10,16 @@ const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? "https://ares-prod-ce9q.onre
 
 const useCases = [
   {
-    title: "Finance Command Center",
-    description: "Track revenue, aging receivables, and margin shift in one governed view."
+    title: "Revenue Analyst Copilot",
+    description: "Ask plain-language questions and get audited SQL, trend charts, and decision-ready summaries."
   },
   {
-    title: "Support Quality Radar",
-    description: "Detect issue clusters, SLA breaches, and team bottlenecks before escalation."
+    title: "Operations Performance Lens",
+    description: "Monitor delivery, SLA, and process variance with governed metrics and explainable drill-downs."
   },
   {
-    title: "Executive Weekly Pulse",
-    description: "Generate trend snapshots from metrics and knowledge context with explainable SQL."
+    title: "Executive Insight Briefing",
+    description: "Turn live data + business context into weekly insight notes your leadership can act on."
   }
 ];
 
@@ -168,14 +168,14 @@ export default function HomePage() {
         <section id="product" className="hero-section">
           <div className="hero-grid-bg" />
           <p className="project-typing">{projectLabel}</p>
-          <h1 className="dot-heading">FIX. LEARN.</h1>
+          <h1 className="dot-heading">ASK. ANALYZE.</h1>
 
           <div className="flow-map">
             <div className="flow-line top">
               <span />
-              <label>Customer</label>
+              <label>Question</label>
               <span />
-              <label>Code</label>
+              <label>SQL</label>
             </div>
             <div className="flow-core">
               <div className="flow-core-inner">
@@ -184,16 +184,16 @@ export default function HomePage() {
             </div>
             <div className="flow-line bottom">
               <span />
-              <label>Issue</label>
+              <label>Result</label>
               <span />
-              <label>PR</label>
+              <label>Insight</label>
             </div>
           </div>
 
-          <h2 className="dot-heading secondary">PREVENT.</h2>
+          <h2 className="dot-heading secondary">ACT.</h2>
           <p className="hero-description">
-            ARES brings AI to enterprise analytics by linking data sources, business context, and explainable query
-            workflows.
+            ARES is the AI Analyst platform for modern teams, connecting live data, business rules, and trusted
+            reasoning so every decision starts with evidence.
           </p>
           <div className="hero-actions">
             <a href={consoleUrl} data-track="console_bay_click" className="primary-btn">
@@ -207,19 +207,19 @@ export default function HomePage() {
 
         <section className="proof-strip">
           <article>
-            <div className="proof-title">KEYDATA</div>
+            <div className="proof-title">TIME TO INSIGHT</div>
             <div className="proof-value">3x</div>
-            <p>Faster insight turnaround</p>
+            <p>Faster analysis cycles with AI-assisted SQL and summaries.</p>
           </article>
           <article>
-            <div className="proof-title">CAYUSE</div>
-            <div className="proof-value">92%</div>
-            <p>Defects found before release</p>
+            <div className="proof-title">ANALYST CONSISTENCY</div>
+            <div className="proof-value">90%+</div>
+            <p>Repeatable answers grounded in your metrics and business context.</p>
           </article>
           <article>
-            <div className="proof-title">ARES</div>
+            <div className="proof-title">AI ANALYST</div>
             <div className="proof-copy">
-              Connect data sources, run secure AI analysis, and turn questions into trusted operational actions.
+              From question to query to insight: ARES helps teams investigate, explain, and act with confidence.
             </div>
           </article>
         </section>
@@ -227,16 +227,16 @@ export default function HomePage() {
         <section id="features" className="section-block">
           <div className="section-head">
             <p>FEATURES</p>
-            <h3>Everything teams need in one workspace</h3>
+            <h3>Built for real analytical workflows</h3>
           </div>
           <div className="mono-card-grid">
             {[
               ["Data Sources", "PostgreSQL, MySQL, Firebase, local SQL, and hosted connectors."],
-              ["Custom Inputs", "Dictionaries, rules, metrics, and business context grounded to pods."],
-              ["AI Query Generation", "Natural language to SQL, result analysis, and chart suggestions."],
-              ["Dashboards", "Metric widgets with filters, groupings, and trend visualizations."],
-              ["Knowledge Bank", "Shared enterprise memory with highlights and lowlights by period."],
-              ["Access Control", "Team roles, pod permissions, and managed enterprise user access."]
+              ["Custom Inputs", "Data dictionaries, parameters, and context that shape every AI response."],
+              ["AI Query Generation", "Natural language to SQL with transparent previews and safe execution paths."],
+              ["Dashboards", "Flexible metric widgets with grouping, filtering, and trend storytelling."],
+              ["Knowledge Bank", "Pod-level memory with highlights and lowlights for domain-aware analysis."],
+              ["Access Control", "Admin, manager, and user-level governance across enterprise pods."]
             ].map(([title, body]) => (
               <article key={title} className="mono-card">
                 <h4>{title}</h4>
@@ -249,7 +249,7 @@ export default function HomePage() {
         <section id="use-cases" className="section-block">
           <div className="section-head">
             <p>USE CASES</p>
-            <h3>Live ARES scenarios</h3>
+            <h3>How teams use ARES as an AI Analyst</h3>
           </div>
           <div className="mono-card-grid">
             {useCases.map((item, index) => (
@@ -264,17 +264,17 @@ export default function HomePage() {
         <section id="security" className="section-block security-block">
           <div className="section-head">
             <p>SECURITY</p>
-            <h3>Zero trust architecture, enterprise ready</h3>
+            <h3>Trusted analysis for enterprise data</h3>
           </div>
           <div className="security-layout">
             <p>
-              Role-based access, pod-level isolation, and auditable query history keep your analysis secure without
-              slowing teams down.
+              Role-based access, pod isolation, audit trails, and controlled connectors protect sensitive data while
+              keeping analyst workflows fast.
             </p>
             <div className="security-badges">
-              <span>SOC-ready controls</span>
-              <span>Encrypted context routing</span>
-              <span>Session-safe auth</span>
+              <span>Pod-level isolation</span>
+              <span>Auditable query history</span>
+              <span>Secure OAuth sessions</span>
             </div>
           </div>
         </section>
@@ -282,7 +282,7 @@ export default function HomePage() {
         <section id="pricing" className="section-block">
           <div className="section-head centered">
             <p>PRICING</p>
-            <h3>Launch with the tier that fits</h3>
+            <h3>Start small, scale your analyst team</h3>
           </div>
           <div className="price-grid">
             {[
@@ -318,7 +318,7 @@ export default function HomePage() {
         <section id="contact" className="section-block">
           <div className="section-head centered">
             <p>CONTACT</p>
-            <h3>Talk to the ARES team</h3>
+            <h3>Design your AI Analyst rollout</h3>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <div className="contact-grid">

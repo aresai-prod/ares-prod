@@ -1,60 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap");
+
 :root {
-  --palette-sand: #f2c997;
-  --palette-rose: #d7a7b3;
-  --palette-ice: #c6d2dd;
-  --palette-teal: #2ea7a7;
-  --palette-blue: #5f7f97;
-  --palette-ink: #223846;
-  --bg-base: #f4f4ef;
-  --bg-panel: rgba(255, 255, 255, 0.82);
-  --bg-muted: rgba(255, 255, 255, 0.66);
-  --overlay: rgba(244, 244, 239, 0.75);
-  --accent-blue: var(--palette-blue);
-  --accent-cyan: var(--palette-teal);
-  --accent-violet: var(--palette-rose);
-  --accent-sun: var(--palette-sand);
-  --text-primary: #1f2f39;
-  --text-secondary: #4f6675;
-  --text-muted: #738694;
-  --border: rgba(34, 56, 70, 0.15);
-  --shadow: 0 16px 38px rgba(31, 47, 57, 0.08);
-  --shadow-strong: 0 22px 50px rgba(31, 47, 57, 0.12);
-  --gradient-core: linear-gradient(135deg, #b8c7d4, #f2c997, #d7a7b3, #4ea8ad);
-  --gradient-soft: linear-gradient(
-    135deg,
-    rgba(198, 210, 221, 0.22),
-    rgba(242, 201, 151, 0.18),
-    rgba(215, 167, 179, 0.16),
-    rgba(78, 168, 173, 0.16)
-  );
-  --glow-1: rgba(198, 210, 221, 0.3);
-  --glow-2: rgba(242, 201, 151, 0.24);
-  --glow-3: rgba(215, 167, 179, 0.22);
-  --font-sans: "Space Grotesk", "Sora", "Plus Jakarta Sans", sans-serif;
+  --palette-orange-1: #f4c08a;
+  --palette-orange-2: #dd8d58;
+  --palette-orange-3: #b95b35;
+  --palette-ink: #1b1b1d;
+  --palette-off-white: #f7f3ed;
+  --bg-base: var(--palette-off-white);
+  --bg-panel: rgba(255, 255, 255, 0.86);
+  --bg-muted: rgba(255, 255, 255, 0.72);
+  --overlay: rgba(247, 243, 237, 0.78);
+  --accent-blue: #445362;
+  --accent-cyan: #b95b35;
+  --accent-violet: #dd8d58;
+  --accent-sun: #f4c08a;
+  --text-primary: #1f2b35;
+  --text-secondary: #556675;
+  --text-muted: #718291;
+  --border: rgba(52, 61, 69, 0.18);
+  --shadow: 0 18px 36px rgba(27, 27, 29, 0.1);
+  --shadow-strong: 0 24px 54px rgba(27, 27, 29, 0.15);
+  --gradient-core: linear-gradient(135deg, #f4c08a 0%, #dd8d58 36%, #b95b35 68%, #9f4528 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(244, 192, 138, 0.18), rgba(221, 141, 88, 0.12), rgba(185, 91, 53, 0.12));
+  --glow-1: rgba(244, 192, 138, 0.24);
+  --glow-2: rgba(221, 141, 88, 0.2);
+  --glow-3: rgba(185, 91, 53, 0.16);
+  --font-sans: "Noto Sans", "Inter", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
 }
 
 [data-theme="dark"] {
-  --bg-base: #101417;
-  --bg-panel: rgba(24, 31, 38, 0.88);
-  --bg-muted: rgba(33, 43, 52, 0.82);
-  --overlay: rgba(16, 20, 23, 0.72);
-  --text-primary: #edf2f6;
-  --text-secondary: #bbcad4;
-  --text-muted: #889ba9;
-  --border: rgba(173, 192, 206, 0.22);
-  --shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
-  --shadow-strong: 0 28px 64px rgba(0, 0, 0, 0.42);
-  --gradient-core: linear-gradient(135deg, #6f8ea4, #c79fa9, #3f9a9c);
-  --gradient-soft: linear-gradient(
-    135deg,
-    rgba(111, 142, 164, 0.2),
-    rgba(199, 159, 169, 0.2),
-    rgba(63, 154, 156, 0.2)
-  );
-  --glow-1: rgba(111, 142, 164, 0.2);
-  --glow-2: rgba(199, 159, 169, 0.2);
-  --glow-3: rgba(63, 154, 156, 0.18);
+  --bg-base: #1b1b1d;
+  --bg-panel: rgba(33, 33, 36, 0.88);
+  --bg-muted: rgba(44, 44, 50, 0.86);
+  --overlay: rgba(27, 27, 29, 0.8);
+  --text-primary: #f7f3ed;
+  --text-secondary: #d2c4b5;
+  --text-muted: #b29f8c;
+  --border: rgba(244, 192, 138, 0.22);
+  --shadow: 0 22px 52px rgba(0, 0, 0, 0.38);
+  --shadow-strong: 0 30px 66px rgba(0, 0, 0, 0.46);
+  --gradient-core: linear-gradient(135deg, #7c3f24 0%, #a44f2f 40%, #d07a49 70%, #ecb784 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(124, 63, 36, 0.22), rgba(164, 79, 47, 0.18), rgba(208, 122, 73, 0.16));
+  --glow-1: rgba(208, 122, 73, 0.22);
+  --glow-2: rgba(164, 79, 47, 0.2);
+  --glow-3: rgba(124, 63, 36, 0.2);
 }
 
 * {
@@ -76,7 +66,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), var(--glow-1), transparent 46%),
-    radial-gradient(circle at var(--splash-x, 50%) var(--splash-y, 50%), rgba(78, 168, 173, var(--splash-opacity, 0)), transparent 40%),
+    radial-gradient(circle at var(--splash-x, 50%) var(--splash-y, 50%), rgba(221, 141, 88, var(--splash-opacity, 0)), transparent 40%),
     radial-gradient(circle at 82% 14%, var(--glow-2), transparent 46%),
     radial-gradient(circle at 18% 86%, var(--glow-3), transparent 44%);
   filter: blur(52px);
@@ -89,8 +79,8 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(rgba(32, 50, 59, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(32, 50, 59, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(52, 61, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 61, 69, 0.05) 1px, transparent 1px);
   background-size: 34px 34px;
   opacity: 0.18;
   pointer-events: none;
@@ -291,7 +281,7 @@ textarea:focus {
 .side-title {
   font-weight: 700;
   letter-spacing: 0.02em;
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -305,14 +295,16 @@ textarea:focus {
   background: var(--gradient-core);
   border: none;
   color: #0b1220;
-  border-radius: 18px;
-  padding: 18px 12px;
-  min-height: 118px;
-  font-weight: 600;
-  font-size: 32px;
+  border-radius: 14px;
+  padding: 12px 12px;
+  min-height: 56px;
+  font-weight: 700;
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 14px 26px rgba(31, 47, 57, 0.12);
+  box-shadow: 0 10px 20px rgba(31, 47, 57, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .history-section,
@@ -415,7 +407,7 @@ textarea:focus {
 
 .account-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   justify-content: flex-start;
 }
@@ -441,20 +433,21 @@ textarea:focus {
 }
 
 .account-badge {
-  background: rgba(9, 161, 161, 0.16);
+  background: rgba(221, 141, 88, 0.18);
   color: var(--text-secondary);
-  border: 1px solid rgba(9, 161, 161, 0.3);
+  border: 1px solid rgba(221, 141, 88, 0.34);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  flex-shrink: 0;
-  max-width: 140px;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-left: auto;
+  white-space: normal;
+  line-height: 1.2;
+  margin-top: 4px;
+  width: fit-content;
 }
 
 .account-menu-backdrop {
@@ -467,7 +460,7 @@ textarea:focus {
   position: absolute;
   left: 24px;
   bottom: 110px;
-  width: 280px;
+  width: min(340px, calc(100vw - 32px));
   background: var(--bg-panel);
   border-radius: 18px;
   border: 1px solid var(--border);
@@ -481,8 +474,14 @@ textarea:focus {
 .account-menu-header {
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 12px;
+}
+
+.account-menu-head-meta {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
 }
 
 .account-menu-items {
@@ -508,8 +507,8 @@ textarea:focus {
 }
 
 .menu-item.danger {
-  color: #b42335;
-  background: rgba(255, 232, 236, 0.85);
+  color: #b43b18;
+  background: rgba(244, 192, 138, 0.2);
 }
 
 .menu-item.danger:hover {
@@ -628,7 +627,7 @@ textarea:focus {
 .primary-button {
   background: var(--gradient-core);
   border: none;
-  color: #0f172a;
+  color: #1b1b1d;
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 12px;
@@ -654,7 +653,7 @@ textarea:focus {
 }
 
 .ghost-button:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(221, 141, 88, 0.4);
   color: var(--accent-blue);
 }
 
@@ -665,7 +664,7 @@ textarea:focus {
 
 .main-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
   gap: 20px;
   flex: 1;
   align-items: stretch;
@@ -1705,11 +1704,11 @@ textarea:focus {
 }
 
 .notice-banner {
-  background: rgba(9, 161, 161, 0.16);
+  background: rgba(244, 192, 138, 0.22);
   color: var(--text-secondary);
   padding: 8px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(9, 161, 161, 0.35);
+  border: 1px solid rgba(221, 141, 88, 0.35);
   font-size: 12px;
 }
 
@@ -1771,13 +1770,18 @@ textarea:focus {
   padding: 6px 12px;
   border-radius: 999px;
   background: var(--gradient-core);
-  color: #0f172a;
+  color: #1b1b1d;
   font-size: 11px;
   font-weight: 600;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 1.2;
+  text-align: left;
+  width: fit-content;
+  min-height: 28px;
+  align-self: flex-start;
 }
 
 .modal-body {
@@ -1993,7 +1997,7 @@ textarea:focus {
   margin-top: 10px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(84, 132, 164, 0.15);
+  background: rgba(221, 141, 88, 0.2);
   overflow: hidden;
 }
 
@@ -2051,7 +2055,7 @@ textarea:focus {
   margin-top: 8px;
   background: transparent;
   border: none;
-  color: var(--accent-cyan);
+  color: var(--accent-violet);
   font-size: 12px;
   cursor: pointer;
   text-decoration: underline;
@@ -2186,7 +2190,7 @@ textarea:focus {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .app-shell {
     display: block;
   }
@@ -2217,8 +2221,8 @@ textarea:focus {
   }
 
   .new-chat-button {
-    min-height: 72px;
-    font-size: 24px;
+    min-height: 52px;
+    font-size: 15px;
     border-radius: 14px;
   }
 
@@ -2241,7 +2245,7 @@ textarea:focus {
   }
 
   .account-badge {
-    max-width: 118px;
+    max-width: 100%;
     font-size: 10px;
   }
 

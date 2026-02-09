@@ -38,11 +38,13 @@ export default function AccountMenu({
       <div className="account-menu" onClick={(event) => event.stopPropagation()}>
         <div className="account-menu-header">
           <div className="account-avatar">{initials}</div>
-          <div className="account-meta">
-            <div className="account-name">{user.name}</div>
-            <div className="account-email">{user.email}</div>
+          <div className="account-menu-head-meta">
+            <div className="account-meta">
+              <div className="account-name">{user.name}</div>
+              <div className="account-email">{user.email}</div>
+            </div>
+            <div className="account-pill">{licenseLabel}</div>
           </div>
-          <div className="account-pill">{licenseLabel}</div>
         </div>
         <div className="account-menu-items">
           <button className="menu-item" onClick={onOpenBilling}>

@@ -75,27 +75,28 @@ router.post("/quality", requireAuth, async (req, res) => {
       knowledgeBank: pod.knowledgeBank
     });
     const now = new Date().toISOString();
+    const evaluatedQuality = {
+      score: result.score,
+      notes: result.notes,
+      updatedAt: now,
+      evaluatedBy: "admin" as const
+    };
     const updated = updateOrg(org.id, (current) => ({
       ...current,
       pods: current.pods.map((entry) => {
         if (entry.id !== podId) return entry;
         return {
           ...entry,
-          knowledgeQuality: {
-            score: result.score,
-            notes: result.notes,
-            updatedAt: now,
-            evaluatedBy: "admin"
-          },
+          knowledgeQuality: evaluatedQuality,
           chatEnabled: true,
           chatOverride: false
         };
       }),
       updatedAt: now
     }));
-    const updatedPod = updated.pods.find((entry) => entry.id === podId);
+    const updatedPod = updated.pods.find((entry) => entry.id === podId) ?? pod;
     return res.json({
-      quality: updatedPod?.knowledgeQuality ?? null,
+      quality: updatedPod.knowledgeQuality ?? evaluatedQuality,
       chatEnabled: true,
       chatOverride: false,
       threshold: 0

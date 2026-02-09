@@ -31,7 +31,7 @@ const router = Router();
 
 function getAppOrigins(): string[] {
   const fallback = "https://aresai-production.web.app,https://aresai.web.app";
-  const raw = process.env.APP_ORIGIN ?? fallback;
+  const raw = `${fallback},${process.env.APP_ORIGIN ?? ""},https://aresai-production.firebaseapp.com,https://aresai.firebaseapp.com`;
   const origins = raw
     .split(",")
     .map((entry) => entry.trim())
