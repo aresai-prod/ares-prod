@@ -52,13 +52,7 @@ router.get("/quality", requireAuth, (req, res) => {
     }
     const pod = getPod(org, podId);
     const quality = pod.knowledgeQuality ?? null;
-    const chatOverride = pod.chatOverride ?? false;
-    const chatEnabled =
-      org.accountType !== "BUSINESS" ||
-      chatOverride ||
-      quality === null ||
-      quality.score >= 80;
-    return res.json({ quality, chatEnabled, chatOverride, threshold: 80 });
+    return res.json({ quality, chatEnabled: true, chatOverride: false, threshold: 0 });
   } catch (err) {
     return res.status(400).json({ error: err instanceof Error ? err.message : "Unable to load quality." });
   }
@@ -69,9 +63,6 @@ router.post("/quality", requireAuth, async (req, res) => {
   const { podId } = req.params as { podId: string };
   try {
     const { user, org } = getUserAndOrg(userId);
-    if (org.accountType !== "BUSINESS") {
-      return res.status(403).json({ error: "Quality scoring is available for enterprise plans only." });
-    }
     if (!canAdminPod(user, podId)) {
       return res.status(403).json({ error: "Only admins can evaluate quality." });
     }
@@ -88,8 +79,6 @@ router.post("/quality", requireAuth, async (req, res) => {
       ...current,
       pods: current.pods.map((entry) => {
         if (entry.id !== podId) return entry;
-        const chatOverride = entry.chatOverride ?? false;
-        const chatEnabled = chatOverride || result.score >= 80;
         return {
           ...entry,
           knowledgeQuality: {
@@ -98,8 +87,8 @@ router.post("/quality", requireAuth, async (req, res) => {
             updatedAt: now,
             evaluatedBy: "admin"
           },
-          chatEnabled,
-          chatOverride
+          chatEnabled: true,
+          chatOverride: false
         };
       }),
       updatedAt: now
@@ -107,9 +96,9 @@ router.post("/quality", requireAuth, async (req, res) => {
     const updatedPod = updated.pods.find((entry) => entry.id === podId);
     return res.json({
       quality: updatedPod?.knowledgeQuality ?? null,
-      chatEnabled: updatedPod?.chatEnabled ?? true,
-      chatOverride: updatedPod?.chatOverride ?? false,
-      threshold: 80
+      chatEnabled: true,
+      chatOverride: false,
+      threshold: 0
     });
   } catch (err) {
     return res.status(400).json({ error: err instanceof Error ? err.message : "Quality evaluation failed." });
@@ -119,7 +108,6 @@ router.post("/quality", requireAuth, async (req, res) => {
 router.post("/chat-override", requireAuth, (req, res) => {
   const { userId } = req as AuthRequest;
   const { podId } = req.params as { podId: string };
-  const { enabled } = req.body as { enabled?: boolean };
   try {
     const { user, org } = getUserAndOrg(userId);
     if (org.accountType !== "BUSINESS") {
@@ -128,19 +116,18 @@ router.post("/chat-override", requireAuth, (req, res) => {
     if (!canAdminPod(user, podId)) {
       return res.status(403).json({ error: "Only admins can override chat gating." });
     }
-    const updated = updateOrg(org.id, (current) => ({
+    updateOrg(org.id, (current) => ({
       ...current,
       pods: current.pods.map((entry) =>
         entry.id === podId
-          ? { ...entry, chatEnabled: Boolean(enabled), chatOverride: true }
+          ? { ...entry, chatEnabled: true, chatOverride: false }
           : entry
       ),
       updatedAt: new Date().toISOString()
     }));
-    const pod = updated.pods.find((entry) => entry.id === podId);
     return res.json({
-      chatEnabled: pod?.chatEnabled ?? true,
-      chatOverride: pod?.chatOverride ?? false
+      chatEnabled: true,
+      chatOverride: false
     });
   } catch (err) {
     return res.status(400).json({ error: err instanceof Error ? err.message : "Unable to update override." });

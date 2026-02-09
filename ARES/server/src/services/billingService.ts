@@ -25,12 +25,14 @@ export function createTokenBucket(tier: LicenseTier): TokenBucket {
 
 export function createLicense(accountType: AccountType, tier?: LicenseTier): License {
   const resolvedTier = tier ?? (accountType === "BUSINESS" ? "BUSINESS" : "FREE");
+  const pricePerSeat =
+    resolvedTier === "FREE" ? 0 : accountType === "BUSINESS" ? 1 : 1;
   return {
     tier: resolvedTier,
     status: "active",
     tokenBucket: createTokenBucket(resolvedTier),
     seats: accountType === "BUSINESS" ? 1 : 1,
-    pricePerSeat: accountType === "BUSINESS" ? 5 : 2,
+    pricePerSeat,
     startedAt: new Date().toISOString()
   };
 }

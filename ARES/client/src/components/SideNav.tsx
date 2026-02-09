@@ -19,6 +19,8 @@ type SideNavProps = {
   onSelectConversation: (id: string) => void;
   onNewConversation: () => void;
   onAccount: () => void;
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
 };
 
 const navItems: Array<{ key: NavKey; label: string }> = [
@@ -39,7 +41,9 @@ export default function SideNav({
   activeConversationId,
   onSelectConversation,
   onNewConversation,
-  onAccount
+  onAccount,
+  mobileOpen = false,
+  onMobileClose
 }: SideNavProps) {
   const initials =
     user?.name
@@ -50,7 +54,12 @@ export default function SideNav({
       .join("") ?? "A";
   const licenseLabel = `${org?.accountType ?? "INDIVIDUAL"} / ${org?.license.tier ?? user?.licenseType ?? "FREE"}`;
   return (
-    <aside className="side-nav">
+    <aside className={`side-nav ${mobileOpen ? "open" : ""}`}>
+      <div className="side-nav-mobile-top">
+        <button className="side-nav-close" onClick={onMobileClose}>
+          Close
+        </button>
+      </div>
       <div className="side-header">
         <div className="side-logo">
           <img src={logo} alt="ARES" />
@@ -61,7 +70,13 @@ export default function SideNav({
         </div>
       </div>
 
-      <button className="new-chat-button" onClick={onNewConversation}>
+      <button
+        className="new-chat-button"
+        onClick={() => {
+          onNewConversation();
+          onMobileClose?.();
+        }}
+      >
         New chat
       </button>
 
@@ -73,7 +88,10 @@ export default function SideNav({
             <button
               key={item.id}
               className={`history-item ${activeConversationId === item.id ? "active" : ""}`}
-              onClick={() => onSelectConversation(item.id)}
+              onClick={() => {
+                onSelectConversation(item.id);
+                onMobileClose?.();
+              }}
             >
               <span className="history-title">{item.title}</span>
               <span className="history-date">{new Date(item.updatedAt).toLocaleDateString()}</span>
@@ -92,7 +110,10 @@ export default function SideNav({
               <button
                 key={item.key}
                 className={active === item.key ? "active" : ""}
-                onClick={() => onSelect(item.key)}
+                onClick={() => {
+                  onSelect(item.key);
+                  onMobileClose?.();
+                }}
               >
                 {item.label}
               </button>
@@ -101,7 +122,13 @@ export default function SideNav({
         </div>
       </div>
 
-      <button className="account-card" onClick={onAccount}>
+      <button
+        className="account-card"
+        onClick={() => {
+          onAccount();
+          onMobileClose?.();
+        }}
+      >
         <div className="account-avatar">{initials}</div>
         <div className="account-meta">
           <div className="account-name">{user?.name ?? "Account"}</div>

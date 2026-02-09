@@ -42,13 +42,13 @@ export default function ChatWidget() {
     <div className="chat-widget">
       {open && (
         <div className="glass-card chat-window">
-          <div className="flex items-center justify-between p-4 border-b border-white/10">
+          <div className="flex items-center justify-between p-4 border-b border-black/10">
             <div>
               <div className="text-sm font-semibold">ARES Concierge</div>
-              <div className="text-xs text-white/60">Instant answers</div>
+              <div className="text-xs text-black/60">Instant answers</div>
             </div>
             <button
-              className="text-xs text-white/60 hover:text-white"
+              className="text-xs text-black/60 hover:text-black"
               onClick={() => setOpen(false)}
             >
               Close
@@ -64,7 +64,7 @@ export default function ChatWidget() {
             </div>
             <div className="flex gap-2">
               <input
-                className="flex-1 rounded-full bg-white/10 border border-white/10 px-3 py-2 text-sm text-white"
+                className="flex-1 rounded-full bg-white/80 border border-black/10 px-3 py-2 text-sm text-black"
                 placeholder="Ask about ARES"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}

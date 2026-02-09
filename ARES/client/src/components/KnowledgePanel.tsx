@@ -9,12 +9,9 @@ type KnowledgePanelProps = {
   dataSources: DataSources;
   knowledgeBank: KnowledgeBankEntry[];
   quality?: KnowledgeQuality | null;
-  chatEnabled: boolean;
-  chatOverride: boolean;
   isBusiness: boolean;
   isAdmin: boolean;
   onEvaluateQuality: () => void;
-  onChatOverride: (enabled: boolean) => void;
   onSaveKnowledge: (next: KnowledgeBase) => void;
   onSaveSources: (next: DataSources) => void;
   onAddKnowledgeBank: (entry: {
@@ -48,12 +45,9 @@ export default function KnowledgePanel({
   dataSources,
   knowledgeBank,
   quality,
-  chatEnabled,
-  chatOverride,
   isBusiness,
   isAdmin,
   onEvaluateQuality,
-  onChatOverride,
   onSaveKnowledge,
   onSaveSources,
   onAddKnowledgeBank,
@@ -255,40 +249,25 @@ export default function KnowledgePanel({
         <span className="panel-subtitle">Pod: {podName ?? "-"}</span>
       </div>
 
-      {isBusiness && (
-        <div className="quality-card">
-          <div>
-            <div className="quality-score">{qualityScore ?? "Not scored"}</div>
-            <div className="panel-subtitle">Knowledge quality score</div>
-            {quality?.notes && <div className="quality-notes">{quality.notes}</div>}
-            {qualityScore !== null && (
-              <div className="quality-meter">
-                <span style={{ width: `${Math.max(4, qualityScore)}%` }} />
-              </div>
-            )}
-          </div>
-          <div className="quality-actions">
-            {isAdmin && (
-              <button className="ghost-button" onClick={onEvaluateQuality}>
-                Evaluate quality
-              </button>
-            )}
-            {quality && quality.score < 80 && isAdmin && (
-              <label className="checkbox">
-                <input
-                  type="checkbox"
-                  checked={chatEnabled}
-                  onChange={(event) => onChatOverride(event.target.checked)}
-                />
-                Enable chat override
-              </label>
-            )}
-            {quality && quality.score < 80 && !chatOverride && (
-              <div className="error-banner">Chat disabled until score reaches 80.</div>
-            )}
-          </div>
+      <div className="quality-card">
+        <div>
+          <div className="quality-score">{qualityScore ?? "Not scored"}</div>
+          <div className="panel-subtitle">Knowledge quality score</div>
+          {quality?.notes && <div className="quality-notes">{quality.notes}</div>}
+          {qualityScore !== null && (
+            <div className="quality-meter">
+              <span style={{ width: `${Math.max(4, qualityScore)}%` }} />
+            </div>
+          )}
         </div>
-      )}
+        <div className="quality-actions">
+          {isAdmin && (
+            <button className="ghost-button" onClick={onEvaluateQuality}>
+              Evaluate quality
+            </button>
+          )}
+        </div>
+      </div>
 
       <div className="tab-row">
         <button className={tab === "tables" ? "active" : ""} onClick={() => setTab("tables")}>

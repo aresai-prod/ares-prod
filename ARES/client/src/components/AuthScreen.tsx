@@ -35,6 +35,28 @@ export default function AuthScreen({
   const [resetToken, setResetToken] = useState("");
   const [resetPassword, setResetPassword] = useState("");
   const [resetNotice, setResetNotice] = useState<string | null>(null);
+  const signupTips = [
+    {
+      label: "Chat-to-SQL + analysis",
+      tooltip: "Ask in plain English. ARES generates SQL, runs it, then summarizes insights."
+    },
+    {
+      label: "Dashboards and trends",
+      tooltip: "Build dashboards from metrics, filters, joins, and chart types for ongoing tracking."
+    },
+    {
+      label: "Knowledge + metrics",
+      tooltip: "Add data dictionary, business rules, and metric definitions to improve result quality."
+    },
+    {
+      label: "Connect data sources",
+      tooltip: "Configure Local SQL, PostgreSQL, MySQL, and Firebase from the Sources panel."
+    },
+    {
+      label: "Add your LLM key",
+      tooltip: "After signup: open Account > Settings and paste an OpenAI or Gemini API key."
+    }
+  ];
 
   return (
     <div className="auth-shell">
@@ -54,10 +76,26 @@ export default function AuthScreen({
         </div>
 
         {mode === "signup" && (
-          <div className="auth-field">
-            <label>Name</label>
-            <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Your name" />
-          </div>
+          <>
+            <div className="auth-field">
+              <label>Name</label>
+              <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Your name" />
+            </div>
+            <div className="signup-tip-panel">
+              <div className="signup-tip-title">New account tips</div>
+              {signupTips.map((item) => (
+                <div key={item.label} className="signup-tip-row">
+                  <span>{item.label}</span>
+                  <span className="signup-tip-icon" title={item.tooltip} aria-label={item.tooltip}>
+                    i
+                  </span>
+                </div>
+              ))}
+              <div className="signup-tip-note">
+                Hover the <span className="signup-tip-icon inline">i</span> icon to view each tip.
+              </div>
+            </div>
+          </>
         )}
 
         {mode !== "reset" && (

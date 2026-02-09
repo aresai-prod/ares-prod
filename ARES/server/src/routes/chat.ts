@@ -46,17 +46,6 @@ router.post("/", requireAuth, async (req, res) => {
     .map((entry) => `(${entry.date}) ${entry.title}: ${entry.highlights} | ${entry.lowlights}`)
     .join("\n");
 
-  if (org.accountType === "BUSINESS") {
-    const qualityScore = pod.knowledgeQuality?.score;
-    const chatOverride = pod.chatOverride ?? false;
-    const chatEnabled = chatOverride || qualityScore === undefined || qualityScore >= 80;
-    if (!chatEnabled) {
-      return res.status(403).json({
-        error: "Chat is disabled until knowledge quality reaches 80. An admin can enable it in Knowledge settings."
-      });
-    }
-  }
-
   const hasProviderKey =
     user.profile.apiKey ||
     (user.profile.llmProvider === "OPENAI"

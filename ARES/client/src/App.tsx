@@ -32,7 +32,6 @@ import {
   resetPassword,
   sendChat,
   sendFeedback,
-  setChatOverride,
   setAuthToken,
   signup,
   testFirebase,
@@ -93,6 +92,23 @@ type NavKey = "chat" | "dashboards" | "knowledge" | "billing" | "insights" | "te
 
 type TrendWidget = { widgetId: string; title: string; chartType: "line" | "bar" | "pie"; data: any };
 
+function resolvePanel(tab: string | null): NavKey | null {
+  if (!tab) return null;
+  if (tab === "chat") return "chat";
+  if (tab === "dashboards") return "dashboards";
+  if (tab === "knowledge") return "knowledge";
+  if (tab === "billing") return "billing";
+  if (tab === "insights") return "insights";
+  if (tab === "team") return "team";
+  return null;
+}
+
+function readQueryPanel(): NavKey | null {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  return resolvePanel(params.get("tab"));
+}
+
 export default function App() {
   const [profile, setProfile] = useState<User | null>(null);
   const [org, setOrg] = useState<Organization | null>(null);
@@ -107,8 +123,6 @@ export default function App() {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeConversationId, setActiveConversationId] = useState<string | null>(null);
   const [knowledgeQuality, setKnowledgeQuality] = useState<KnowledgeQuality | null>(null);
-  const [chatEnabled, setChatEnabled] = useState(true);
-  const [chatOverride, setChatOverrideState] = useState(false);
   const [loading, setLoading] = useState(false);
   const [tasking, setTasking] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -117,7 +131,8 @@ export default function App() {
   const [profileOpen, setProfileOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [booting, setBooting] = useState(() => Boolean(getAuthToken()));
-  const [activePanel, setActivePanel] = useState<NavKey>("chat");
+  const [activePanel, setActivePanel] = useState<NavKey>(() => readQueryPanel() ?? "chat");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") return "light";
     try {
@@ -138,10 +153,6 @@ export default function App() {
     profile && !profile.profile.apiKey
       ? "Add your OpenAI or Gemini API key in Profile to enable live LLM responses."
       : null;
-  const chatLocked = org?.accountType === "BUSINESS" && !chatEnabled;
-  const chatLockReason = chatLocked
-    ? `Chat is disabled until knowledge quality reaches 80. Current score: ${knowledgeQuality?.score ?? "N/A"}.`
-    : null;
   const showTaskLoader = loading || tasking;
 
   async function loadPodResources(podId: string) {
@@ -161,12 +172,8 @@ export default function App() {
     setKnowledgeBank(bankData);
     if (qualityData) {
       setKnowledgeQuality(qualityData.quality);
-      setChatEnabled(qualityData.chatEnabled);
-      setChatOverrideState(qualityData.chatOverride);
     } else {
       setKnowledgeQuality(null);
-      setChatEnabled(true);
-      setChatOverrideState(false);
     }
   }
 
@@ -196,6 +203,12 @@ export default function App() {
       await loadPodResources(podId);
     }
     hydrateConversations(user);
+    const requestedPanel = readQueryPanel();
+    if (requestedPanel) {
+      setActivePanel(requestedPanel);
+    } else if (user.licenseType === "FREE") {
+      setActivePanel("billing");
+    }
     void trackEvent("app_loaded", { licenseType: user.licenseType }).catch(() => {});
   }
 
@@ -211,6 +224,34 @@ export default function App() {
       }
     }
   }, [theme]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let rafId = 0;
+    let fadeTimer = 0;
+    const onMove = (event: MouseEvent) => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const x = (event.clientX / window.innerWidth) * 100;
+        const y = (event.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty("--mx", `${x}%`);
+        document.documentElement.style.setProperty("--my", `${y}%`);
+        document.documentElement.style.setProperty("--splash-x", `${event.clientX}px`);
+        document.documentElement.style.setProperty("--splash-y", `${event.clientY}px`);
+        document.documentElement.style.setProperty("--splash-opacity", "0.18");
+      });
+      if (fadeTimer) window.clearTimeout(fadeTimer);
+      fadeTimer = window.setTimeout(() => {
+        document.documentElement.style.setProperty("--splash-opacity", "0");
+      }, 180);
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (fadeTimer) window.clearTimeout(fadeTimer);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -363,10 +404,6 @@ export default function App() {
 
   async function handleSend(message: string) {
     if (!message.trim() || !activePodId) return;
-    if (chatLocked) {
-      setError(chatLockReason ?? "Chat is disabled by quality gate.");
-      return;
-    }
     setError(null);
     setLoading(true);
 
@@ -441,8 +478,6 @@ export default function App() {
         const quality = await fetchKnowledgeQuality(activePodId).catch(() => null);
         if (quality) {
           setKnowledgeQuality(quality.quality);
-          setChatEnabled(quality.chatEnabled);
-          setChatOverrideState(quality.chatOverride);
         }
       }
       void trackEvent("knowledge_saved", {}).catch(() => {});
@@ -459,25 +494,9 @@ export default function App() {
     try {
       const quality = await evaluateKnowledgeQuality(activePodId);
       setKnowledgeQuality(quality.quality);
-      setChatEnabled(quality.chatEnabled);
-      setChatOverrideState(quality.chatOverride);
       void trackEvent("knowledge_quality_scored", { score: quality.quality?.score ?? null }).catch(() => {});
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to evaluate knowledge quality.");
-    } finally {
-      setTasking(false);
-    }
-  }
-
-  async function handleChatOverride(enabled: boolean) {
-    if (!activePodId) return;
-    setTasking(true);
-    try {
-      const result = await setChatOverride(activePodId, enabled);
-      setChatEnabled(result.chatEnabled);
-      setChatOverrideState(result.chatOverride);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to update chat override.");
     } finally {
       setTasking(false);
     }
@@ -649,11 +668,14 @@ export default function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${mobileNavOpen ? "mobile-nav-open" : ""}`}>
       {showTaskLoader && <TaskPreloader label="A.R.E.S. Loading..." />}
       <SideNav
         active={activePanel}
-        onSelect={setActivePanel}
+        onSelect={(key) => {
+          setActivePanel(key);
+          setMobileNavOpen(false);
+        }}
         org={org}
         user={profile}
         conversations={conversationSummaries}
@@ -672,11 +694,33 @@ export default function App() {
           setLatestResponse(null);
           setError(null);
           setActivePanel("chat");
+          setMobileNavOpen(false);
         }}
         onAccount={() => setAccountMenuOpen(true)}
+        mobileOpen={mobileNavOpen}
+        onMobileClose={() => setMobileNavOpen(false)}
       />
+      {mobileNavOpen && (
+        <button
+          className="mobile-nav-backdrop"
+          onClick={() => setMobileNavOpen(false)}
+          aria-label="Close menu"
+        />
+      )}
 
       <main className="main-area">
+        <div className="mobile-topbar">
+          <button
+            className="mobile-hamburger"
+            onClick={() => setMobileNavOpen(true)}
+            aria-label="Open menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <div className="mobile-topbar-title">ARES</div>
+        </div>
         <div className="content-area">
           {activePanel === "chat" && (
             <div className={`main-grid ${showResults ? "with-results" : "single"}`}>
@@ -686,8 +730,8 @@ export default function App() {
                 onSend={handleSend}
                 error={error}
                 notice={apiNotice}
-                disabled={chatLocked}
-                disabledReason={chatLockReason}
+                disabled={false}
+                disabledReason={null}
               />
               {showResults && (
                 <ResultsPanel
@@ -720,15 +764,12 @@ export default function App() {
                   onTestMysql={handleTestMysql}
                   onTestFirebase={handleTestFirebase}
                   quality={knowledgeQuality}
-                  chatEnabled={chatEnabled}
-                  chatOverride={chatOverride}
                   isBusiness={org?.accountType === "BUSINESS"}
                   isAdmin={
                     profile.role === "admin" ||
                     profile.podAccess?.some((access) => access.podId === activePodId && access.role === "admin")
                   }
                   onEvaluateQuality={handleEvaluateQuality}
-                  onChatOverride={handleChatOverride}
                 />
               )}
               {activePanel === "dashboards" && (

@@ -13,7 +13,7 @@ type BillingPanelProps = {
 export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUpdated }: BillingPanelProps) {
   const [license, setLicense] = useState<License | null>(null);
   const [orderInfo, setOrderInfo] = useState<any | null>(null);
-  const [seats, setSeats] = useState(5);
+  const [seats, setSeats] = useState(1);
   const [status, setStatus] = useState<string | null>(null);
   const [devUpgradeAllowed, setDevUpgradeAllowed] = useState(false);
   const isLocal = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
@@ -95,7 +95,7 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
       <div className="pricing-grid">
         <div className="pricing-card">
           <div className="card-title">Individual</div>
-          <div className="pricing-price">$2 / month</div>
+          <div className="pricing-price">INR 1 / month</div>
           <div className="panel-subtitle">Single user, full ARES access.</div>
           {user.role === "admin" && (
             <button className="primary-button" onClick={() => handleOrder("INDIVIDUAL")}>
@@ -106,13 +106,14 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
 
         <div className="pricing-card">
           <div className="card-title">Enterprise</div>
-          <div className="pricing-price">$10 base + $5 per additional user</div>
+          <div className="pricing-price">INR 2 base + INR 1 per additional user</div>
           <div className="panel-subtitle">Includes first seat. Team access + role controls.</div>
           <label className="panel-subtitle">Seats</label>
           <input
             type="number"
             value={seats}
-            onChange={(event) => setSeats(Number(event.target.value) || 1)}
+            min={1}
+            onChange={(event) => setSeats(Math.max(1, Number(event.target.value) || 1))}
             placeholder="Seats"
           />
           {user.role === "admin" && (

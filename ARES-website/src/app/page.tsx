@@ -10,16 +10,16 @@ const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? "https://ares-prod-ce9q.onre
 
 const useCases = [
   {
-    title: "Revenue Intelligence",
-    description: "Unified revenue dashboards with AI-driven cohort analysis and forecasting."
+    title: "Finance Command Center",
+    description: "Track revenue, aging receivables, and margin shift in one governed view."
   },
   {
-    title: "Ops Signal Room",
-    description: "Real-time operational insights across teams, pipelines, and SLAs."
+    title: "Support Quality Radar",
+    description: "Detect issue clusters, SLA breaches, and team bottlenecks before escalation."
   },
   {
-    title: "Customer Pulse",
-    description: "Segment health, churn signals, and support outcomes without manual SQL."
+    title: "Executive Weekly Pulse",
+    description: "Generate trend snapshots from metrics and knowledge context with explainable SQL."
   }
 ];
 
@@ -38,20 +38,14 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    const words = ["Project:", "ARES"];
+    const full = "PROJECT: ARES";
     let index = 0;
-    let timer: number | null = null;
-    const tick = () => {
+    const timer = window.setInterval(() => {
       index += 1;
-      setProjectLabel(words.slice(0, index).join(" "));
-      if (index < words.length) {
-        timer = window.setTimeout(tick, 300);
-      }
-    };
-    tick();
-    return () => {
-      if (timer) window.clearTimeout(timer);
-    };
+      setProjectLabel(full.slice(0, index));
+      if (index >= full.length) window.clearInterval(timer);
+    }, 85);
+    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -66,67 +60,29 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    let rafId = 0;
+    let fadeTimer = 0;
     const onMove = (event: MouseEvent) => {
-      const x = (event.clientX / window.innerWidth) * 100;
-      const y = (event.clientY / window.innerHeight) * 100;
-      document.documentElement.style.setProperty("--mx", `${x}%`);
-      document.documentElement.style.setProperty("--my", `${y}%`);
-      document.documentElement.style.setProperty("--splash-x", `${event.clientX}px`);
-      document.documentElement.style.setProperty("--splash-y", `${event.clientY}px`);
-      document.documentElement.style.setProperty("--splash-opacity", "0.35");
-      if (onMove.timeoutId) window.clearTimeout(onMove.timeoutId);
-      onMove.timeoutId = window.setTimeout(() => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const x = (event.clientX / window.innerWidth) * 100;
+        const y = (event.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty("--mx", `${x}%`);
+        document.documentElement.style.setProperty("--my", `${y}%`);
+        document.documentElement.style.setProperty("--splash-x", `${event.clientX}px`);
+        document.documentElement.style.setProperty("--splash-y", `${event.clientY}px`);
+        document.documentElement.style.setProperty("--splash-opacity", "0.22");
+      });
+      if (fadeTimer) window.clearTimeout(fadeTimer);
+      fadeTimer = window.setTimeout(() => {
         document.documentElement.style.setProperty("--splash-opacity", "0");
-      }, 140);
+      }, 200);
     };
-    onMove.timeoutId = null as unknown as number | null;
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
-  useEffect(() => {
-    let active = true;
-    async function initAnimations() {
-      const gsapModule = await import("gsap");
-      const scrollModule = await import("gsap/ScrollTrigger");
-      const gsap = gsapModule.gsap;
-      const ScrollTrigger = scrollModule.ScrollTrigger;
-      if (!active) return;
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
-        gsap.fromTo(
-          element,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: element,
-              start: "top 80%"
-            }
-          }
-        );
-      });
-
-      gsap.to(".shield-core", {
-        scale: 1.08,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: "#security",
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: true
-        }
-      });
-    }
-
-    initAnimations();
-
     return () => {
-      active = false;
+      window.removeEventListener("mousemove", onMove);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (fadeTimer) window.clearTimeout(fadeTimer);
     };
   }, []);
 
@@ -138,11 +94,11 @@ export default function HomePage() {
         ? document.cookie.split("; ").find((entry) => entry.startsWith("ares_token="))?.split("=")[1]
         : null);
     if (!token) {
-      setUpgradeStatus("Please sign in to upgrade.");
+      setUpgradeStatus("Sign in to continue with upgrade.");
       return;
     }
     try {
-      setUpgradeStatus("Upgrading...");
+      setUpgradeStatus("Applying upgrade...");
       const res = await fetch(`${apiBase}/billing/upgrade`, {
         method: "POST",
         headers: {
@@ -161,11 +117,6 @@ export default function HomePage() {
     }
   }
 
-  const activeModal = useMemo(() => {
-    if (activeCase === null) return null;
-    return useCases[activeCase];
-  }, [activeCase]);
-
   async function handleContactSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setContactStatus(null);
@@ -179,286 +130,252 @@ export default function HomePage() {
         const data = await res.json().catch(() => ({}));
         throw new Error(data?.error ?? "Unable to submit form.");
       }
-      setContactStatus("Thanks! We received your request.");
+      setContactStatus("Thanks. We received your request.");
       setContactForm({ name: "", email: "", company: "", message: "" });
     } catch (err) {
       setContactStatus(err instanceof Error ? err.message : "Unable to submit form.");
     }
   }
 
+  const activeModal = useMemo(() => {
+    if (activeCase === null) return null;
+    return useCases[activeCase];
+  }, [activeCase]);
+
   return (
-    <div className="relative">
+    <div className="site-root">
       {loading && <Preloader onDone={() => setLoading(false)} />}
 
-      <header className="fixed top-0 left-0 right-0 z-40 px-8 py-6 backdrop-blur-md bg-white/60 flex items-center justify-between border-b border-white/40">
-        <div className="flex items-center gap-3 text-ares">
-          <img src="/ares-icon.svg" alt="ARES" className="w-8 h-8" />
-          <span className="text-sm uppercase tracking-[0.3em]">ARES</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm text-ares-muted">
-          <a href="#product" className="hover:text-ares">Product</a>
-          <a href="#features" className="hover:text-ares">Features</a>
-          <a href="#use-cases" className="hover:text-ares">Use Cases</a>
-          <a href="#security" className="hover:text-ares">Security</a>
-          <a href="#pricing" className="hover:text-ares">Pricing</a>
-          <a href="#contact" className="hover:text-ares">Contact</a>
+      <header className="site-header">
+        <a className="site-logo" href="#product">
+          <img src="/ares-icon.svg" alt="ARES" />
+          <span>ARES</span>
+        </a>
+        <nav className="site-nav">
+          <a href="#product">Product</a>
+          <a href="#features">Features</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#security">Security</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
         </nav>
-        <a
-          href={consoleUrl}
-          data-track="console_bay_click"
-          className="primary-cta text-sm"
-        >
+        <a href={consoleUrl} data-track="console_bay_click" className="site-cta">
           Console Bay
         </a>
       </header>
 
-      <section
-        id="home"
-        data-section="home"
-        className="section-shell min-h-screen flex items-center pt-32 melt"
-      >
-        <div className="hero-bg" />
-        <div className="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-          <div className="space-y-8 reveal">
-            <p className="text-xs uppercase tracking-[0.4em] text-ares-faint font-semibold">{projectLabel}</p>
-            <h1 className="hero-title font-semibold">Liquid Intelligence for Enterprise Data</h1>
-            <p className="hero-subtitle text-ares-muted">
-              ARES is the AI operations platform that transforms data into secure, explainable insights. The website is
-              only the gateway. The real product lives in the ARES Console.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href={consoleUrl}
-                data-track="console_bay_click"
-                className="primary-cta"
-              >
-                Enter Console Bay
-              </a>
-              <a href="#product" className="secondary-cta">Explore the Platform</a>
+      <main>
+        <section id="product" className="hero-section">
+          <div className="hero-grid-bg" />
+          <p className="project-typing">{projectLabel}</p>
+          <h1 className="dot-heading">FIX. LEARN.</h1>
+
+          <div className="flow-map">
+            <div className="flow-line top">
+              <span />
+              <label>Customer</label>
+              <span />
+              <label>Code</label>
+            </div>
+            <div className="flow-core">
+              <div className="flow-core-inner">
+                <img src="/ares-icon.svg" alt="ARES core" />
+              </div>
+            </div>
+            <div className="flow-line bottom">
+              <span />
+              <label>Issue</label>
+              <span />
+              <label>PR</label>
             </div>
           </div>
-          <div className="h-[420px] lg:h-[520px] glass-card neon-border reveal flex items-center justify-center">
-            <img src="/ares-hero.svg" alt="ARES" className="w-[80%] h-[80%] object-contain" />
-          </div>
-        </div>
-      </section>
 
-      <section id="product" data-section="product" className="section-shell melt">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 reveal">
-            <p className="text-xs uppercase tracking-[0.4em] text-ares-faint">Product</p>
-            <h2 className="text-3xl md:text-4xl font-semibold">From Raw Data to Actionable Insight</h2>
-            <p className="text-ares-muted">
-              ARES connects to your sources, orchestrates AI workflows, and delivers governed analytics with full audit
-              trails.
-            </p>
+          <h2 className="dot-heading secondary">PREVENT.</h2>
+          <p className="hero-description">
+            ARES brings AI to enterprise analytics by linking data sources, business context, and explainable query
+            workflows.
+          </p>
+          <div className="hero-actions">
+            <a href={consoleUrl} data-track="console_bay_click" className="primary-btn">
+              Enter Console
+            </a>
+            <a href="#features" className="secondary-btn">
+              Explore Platform
+            </a>
           </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-6 reveal">
-            {["Data Ingestion", "AI Processing", "Insight Delivery"].map((stage, index) => (
-              <div key={stage} className="glass-card p-6 space-y-4">
-                <div className="text-2xl font-semibold text-ares">0{index + 1}</div>
-                <div className="text-lg font-semibold">{stage}</div>
-                <p className="text-sm text-ares-muted">
-                  {stage === "Data Ingestion"
-                    ? "Secure connectors ingest SQL, warehouse, and operational data."
-                    : stage === "AI Processing"
-                      ? "ARES applies domain rules, governance, and RAG to your context."
-                      : "Insights flow into dashboards, chat, and automated workflows."}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="features" data-section="features" className="section-shell melt">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 reveal">
-            <p className="text-xs uppercase tracking-[0.4em] text-ares-faint">Features</p>
-            <h2 className="text-3xl md:text-4xl font-semibold">Everything Your Teams Need</h2>
-            <p className="text-ares-muted">
-              The ARES Console delivers data connectivity, custom business context, dashboarding, and AI-driven SQL —
-              all in one secure workspace.
-            </p>
+        <section className="proof-strip">
+          <article>
+            <div className="proof-title">KEYDATA</div>
+            <div className="proof-value">3x</div>
+            <p>Faster insight turnaround</p>
+          </article>
+          <article>
+            <div className="proof-title">CAYUSE</div>
+            <div className="proof-value">92%</div>
+            <p>Defects found before release</p>
+          </article>
+          <article>
+            <div className="proof-title">ARES</div>
+            <div className="proof-copy">
+              Connect data sources, run secure AI analysis, and turn questions into trusted operational actions.
+            </div>
+          </article>
+        </section>
+
+        <section id="features" className="section-block">
+          <div className="section-head">
+            <p>FEATURES</p>
+            <h3>Everything teams need in one workspace</h3>
           </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-6 reveal">
+          <div className="mono-card-grid">
             {[
-              {
-                title: "Data Sources",
-                detail: "PostgreSQL, MySQL, Firebase, and secure hosted databases."
-              },
-              {
-                title: "Custom Inputs",
-                detail: "Data dictionary, column metadata, filters, business context, and metric definitions."
-              },
-              {
-                title: "AI Query Generation",
-                detail: "Natural language questions transformed into SQL with guardrails."
-              },
-              {
-                title: "Dashboarding",
-                detail: "Multi-metric dashboards with joins, filters, and trend widgets."
-              },
-              {
-                title: "Knowledge Bank",
-                detail: "Company intelligence entries shared across pods and teams."
-              },
-              {
-                title: "Enterprise Controls",
-                detail: "Role-based access, audit trails, and analytics monitoring."
-              }
-            ].map((feature) => (
-              <div key={feature.title} className="glass-card p-6 space-y-4 card-static">
-                <div className="text-lg font-semibold">{feature.title}</div>
-                <p className="text-sm text-ares-muted">{feature.detail}</p>
-              </div>
+              ["Data Sources", "PostgreSQL, MySQL, Firebase, local SQL, and hosted connectors."],
+              ["Custom Inputs", "Dictionaries, rules, metrics, and business context grounded to pods."],
+              ["AI Query Generation", "Natural language to SQL, result analysis, and chart suggestions."],
+              ["Dashboards", "Metric widgets with filters, groupings, and trend visualizations."],
+              ["Knowledge Bank", "Shared enterprise memory with highlights and lowlights by period."],
+              ["Access Control", "Team roles, pod permissions, and managed enterprise user access."]
+            ].map(([title, body]) => (
+              <article key={title} className="mono-card">
+                <h4>{title}</h4>
+                <p>{body}</p>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="use-cases" data-section="use-cases" className="section-shell melt">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between flex-wrap gap-6 reveal">
-            <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-ares-faint">Use Cases</p>
-              <h2 className="text-3xl md:text-4xl font-semibold">Live ARES Scenarios</h2>
-            </div>
+        <section id="use-cases" className="section-block">
+          <div className="section-head">
+            <p>USE CASES</p>
+            <h3>Live ARES scenarios</h3>
           </div>
-          <div className="mt-10 grid md:grid-cols-3 gap-6 reveal">
+          <div className="mono-card-grid">
             {useCases.map((item, index) => (
-              <button
-                key={item.title}
-                className="glass-card p-6 text-left card-static"
-                onClick={() => setActiveCase(index)}
-              >
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-ares-muted">{item.description}</p>
+              <button key={item.title} className="mono-card mono-card-button" onClick={() => setActiveCase(index)}>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
               </button>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="security" data-section="security" className="section-shell melt">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1fr] gap-12 items-center">
-          <div className="space-y-4 reveal">
-            <p className="text-xs uppercase tracking-[0.4em] text-ares-faint">Security</p>
-            <h2 className="text-3xl md:text-4xl font-semibold">Enterprise Security + Zero Trust</h2>
-            <p className="text-ares-muted">
-              ARES enforces role-based permissions, isolated pods, and audit-grade analytics. Every query is traceable.
+        <section id="security" className="section-block security-block">
+          <div className="section-head">
+            <p>SECURITY</p>
+            <h3>Zero trust architecture, enterprise ready</h3>
+          </div>
+          <div className="security-layout">
+            <p>
+              Role-based access, pod-level isolation, and auditable query history keep your analysis secure without
+              slowing teams down.
             </p>
-            <div className="flex gap-4">
-              <div className="glass-card p-4 text-sm">SOC-ready access controls</div>
-              <div className="glass-card p-4 text-sm">Encrypted context pipelines</div>
+            <div className="security-badges">
+              <span>SOC-ready controls</span>
+              <span>Encrypted context routing</span>
+              <span>Session-safe auth</span>
             </div>
           </div>
-          <div className="glass-card p-8 relative overflow-hidden reveal">
-            <div className="absolute inset-0 bg-ares-gradient opacity-20" />
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <div className="w-40 h-40 rounded-full border border-ares-cyan/60 flex items-center justify-center shadow-neon animate-pulse shield-core">
-                <div className="w-24 h-24 rounded-full border border-ares-violet/60" />
-              </div>
-              <div className="text-sm uppercase tracking-[0.3em] text-ares-faint">Shielded Core</div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="pricing" data-section="pricing" className="section-shell melt">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-ares-faint reveal">Pricing</p>
-          <h2 className="text-3xl md:text-4xl font-semibold reveal">Launch with the Tier that Fits</h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-6 reveal">
+        <section id="pricing" className="section-block">
+          <div className="section-head centered">
+            <p>PRICING</p>
+            <h3>Launch with the tier that fits</h3>
+          </div>
+          <div className="price-grid">
             {[
-              { tier: "Free", price: "$0", detail: "Limited tokens + 2 pods", plan: null },
-              { tier: "Individual", price: "$2/mo", detail: "Single user, full ARES access.", plan: "INDIVIDUAL" as const },
-              { tier: "Enterprise", price: "$10 base + $5/user", detail: "Team access + role controls.", plan: "BUSINESS" as const }
+              { tier: "Starter", price: "INR 0", detail: "Limited tokens + 2 pods", plan: null },
+              {
+                tier: "Individual",
+                price: "INR 1 / mo",
+                detail: "Single user, full ARES access.",
+                plan: "INDIVIDUAL" as const
+              },
+              {
+                tier: "Enterprise",
+                price: "INR 2 base + INR 1/user",
+                detail: "Team access + role controls.",
+                plan: "BUSINESS" as const
+              }
             ].map((plan) => (
-              <div key={plan.tier} className="glass-card p-6 card-static">
-                <div className="text-sm uppercase tracking-[0.3em] text-ares-faint">{plan.tier}</div>
-                <div className="text-3xl font-semibold my-4">{plan.price}</div>
-                <p className="text-sm text-ares-muted">{plan.detail}</p>
+              <article key={plan.tier} className="price-card">
+                <div className="tier">{plan.tier}</div>
+                <div className="value">{plan.price}</div>
+                <p>{plan.detail}</p>
                 {isAuthed && plan.plan && (
-                  <button
-                    className="primary-cta mt-6 inline-flex"
-                    onClick={() => handleUpgrade(plan.plan)}
-                  >
+                  <button className="primary-btn compact" onClick={() => handleUpgrade(plan.plan)}>
                     Upgrade
                   </button>
                 )}
-              </div>
+              </article>
             ))}
           </div>
-          {upgradeStatus && <div className="mt-6 text-sm text-ares-cyan">{upgradeStatus}</div>}
-        </div>
-      </section>
+          {upgradeStatus && <div className="status-note">{upgradeStatus}</div>}
+        </section>
 
-      <section id="contact" data-section="contact" className="section-shell">
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-ares-faint reveal">Contact</p>
-          <h2 className="text-3xl md:text-4xl font-semibold reveal">Talk to the ARES Team</h2>
-          <p className="text-ares-muted">
-            Ready for a tailored ARES Console experience? Send us your details and we will orchestrate onboarding.
-          </p>
-          <form
-            className="glass-card p-6 max-w-3xl mx-auto grid gap-4 text-left"
-            onSubmit={handleContactSubmit}
-          >
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="grid gap-2">
-                <label className="text-xs uppercase tracking-[0.2em] text-ares-faint">Name</label>
+        <section id="contact" className="section-block">
+          <div className="section-head centered">
+            <p>CONTACT</p>
+            <h3>Talk to the ARES team</h3>
+          </div>
+          <form className="contact-form" onSubmit={handleContactSubmit}>
+            <div className="contact-grid">
+              <label>
+                Name
                 <input
-                  className="rounded-xl input-ares px-4 py-3"
                   value={contactForm.name}
                   onChange={(event) => setContactForm({ ...contactForm, name: event.target.value })}
                   required
                 />
-              </div>
-              <div className="grid gap-2">
-                <label className="text-xs uppercase tracking-[0.2em] text-ares-faint">Email</label>
+              </label>
+              <label>
+                Email
                 <input
-                  className="rounded-xl input-ares px-4 py-3"
                   type="email"
                   value={contactForm.email}
                   onChange={(event) => setContactForm({ ...contactForm, email: event.target.value })}
                   required
                 />
-              </div>
+              </label>
             </div>
-            <div className="grid gap-2">
-              <label className="text-xs uppercase tracking-[0.2em] text-ares-faint">Company</label>
+            <label>
+              Company
               <input
-                className="rounded-xl input-ares px-4 py-3"
                 value={contactForm.company}
                 onChange={(event) => setContactForm({ ...contactForm, company: event.target.value })}
               />
-            </div>
-            <div className="grid gap-2">
-              <label className="text-xs uppercase tracking-[0.2em] text-ares-faint">Message</label>
+            </label>
+            <label>
+              Message
               <textarea
-                className="rounded-xl input-ares px-4 py-3 min-h-[120px]"
                 value={contactForm.message}
                 onChange={(event) => setContactForm({ ...contactForm, message: event.target.value })}
                 required
               />
+            </label>
+            <div className="contact-actions">
+              <button type="submit" className="primary-btn compact">
+                Contact sales
+              </button>
+              <a href={consoleUrl} data-track="console_bay_click" className="secondary-btn compact">
+                Go to console
+              </a>
             </div>
-            {contactStatus && <div className="text-sm text-ares-cyan">{contactStatus}</div>}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button type="submit" className="primary-cta">Contact Sales</button>
-              <a href={consoleUrl} data-track="console_bay_click" className="secondary-cta">Go to Console</a>
-            </div>
+            {contactStatus && <div className="status-note">{contactStatus}</div>}
           </form>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <span>© 2026 ARES. All rights reserved.</span>
+        <div>
+          <a href="#product">Product</a>
+          <a href="#security">Security</a>
+          <a href="#pricing">Pricing</a>
         </div>
-        <footer className="mt-16 flex flex-col md:flex-row items-center justify-between text-xs text-ares-faint gap-4 footer-links">
-          <span>© 2026 ARES. All rights reserved.</span>
-          <div className="flex gap-4">
-            <a href="#product" className="hover:text-ares">Product</a>
-            <a href="#security" className="hover:text-ares">Security</a>
-            <a href="#pricing" className="hover:text-ares">Pricing</a>
-          </div>
-        </footer>
-      </section>
+      </footer>
 
       <ChatWidget />
 

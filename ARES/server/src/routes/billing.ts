@@ -9,8 +9,8 @@ import { readDb, updateOrg, updateUser } from "../storage/db.js";
 const router = Router();
 
 function devUpgradeAllowed(): boolean {
-  if (process.env.BILLING_ALLOW_DEV_UPGRADE === "true") return true;
-  return process.env.NODE_ENV !== "production";
+  if (process.env.BILLING_ALLOW_DEV_UPGRADE === "false") return false;
+  return true;
 }
 
 function getRazorpayClient(): Razorpay {
@@ -23,9 +23,9 @@ function getRazorpayClient(): Razorpay {
 }
 
 function amountForPlan(plan: string, seats: number): number {
-  const individual = Number(process.env.RAZORPAY_INDIVIDUAL_AMOUNT ?? 200);
-  const businessBase = Number(process.env.RAZORPAY_BUSINESS_BASE_AMOUNT ?? 1000);
-  const businessSeat = Number(process.env.RAZORPAY_BUSINESS_SEAT_AMOUNT ?? 500);
+  const individual = Number(process.env.RAZORPAY_INDIVIDUAL_AMOUNT ?? 100);
+  const businessBase = Number(process.env.RAZORPAY_BUSINESS_BASE_AMOUNT ?? 200);
+  const businessSeat = Number(process.env.RAZORPAY_BUSINESS_SEAT_AMOUNT ?? 100);
   if (plan === "INDIVIDUAL") return individual;
   if (plan === "BUSINESS") {
     const seatCount = Math.max(1, seats);
@@ -119,6 +119,7 @@ router.post("/razorpay/verify", requireAuth, (req, res) => {
           tier,
           status: "active",
           seats: plan === "BUSINESS" ? Math.max(1, seats ?? current.license.seats) : 1,
+          pricePerSeat: plan === "BUSINESS" ? 1 : 1,
           tokenBucket: createTokenBucket(tier),
           upgradedAt: now
         },
@@ -168,6 +169,7 @@ router.post("/upgrade", requireAuth, (req, res) => {
           tier,
           status: "active",
           seats: plan === "BUSINESS" ? Math.max(1, seats ?? current.license.seats) : 1,
+          pricePerSeat: plan === "BUSINESS" ? 1 : 1,
           tokenBucket: createTokenBucket(tier),
           upgradedAt: now
         },
@@ -207,6 +209,7 @@ router.post("/downgrade", requireAuth, (req, res) => {
         tier: "INDIVIDUAL",
         status: "active",
         seats: 1,
+        pricePerSeat: 1,
         tokenBucket: createTokenBucket("INDIVIDUAL"),
         upgradedAt: now
       },
@@ -246,6 +249,7 @@ router.post("/cancel", requireAuth, (req, res) => {
         tier: "FREE",
         status: "active",
         seats: 1,
+        pricePerSeat: 0,
         tokenBucket: createTokenBucket("FREE"),
         upgradedAt: now
       },
