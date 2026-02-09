@@ -9,6 +9,8 @@ type PendingUpgrade = {
   seats: number;
 };
 
+const RETRY_STORAGE_KEY = "ares_retry_upgrade";
+
 type RazorpayOrderResponse = {
   order: {
     id: string;
@@ -52,6 +54,23 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
   const [devUpgradeAllowed, setDevUpgradeAllowed] = useState(false);
   const isLocal = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
 
+  function redirectToBilling(payment: "success" | "failed") {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("tab", "billing");
+    url.searchParams.set("payment", payment);
+    window.location.assign(url.toString());
+  }
+
+  function cacheRetryUpgrade(pending: PendingUpgrade | null) {
+    if (typeof window === "undefined") return;
+    if (!pending) {
+      window.sessionStorage.removeItem(RETRY_STORAGE_KEY);
+      return;
+    }
+    window.sessionStorage.setItem(RETRY_STORAGE_KEY, JSON.stringify(pending));
+  }
+
   useEffect(() => {
     fetchLicense()
       .then((data) => {
@@ -60,6 +79,43 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
       })
       .catch((err) => setStatus(err instanceof Error ? err.message : "Failed to load license"));
   }, [isLocal]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedRetry = window.sessionStorage.getItem(RETRY_STORAGE_KEY);
+    if (storedRetry) {
+      try {
+        const parsed = JSON.parse(storedRetry) as PendingUpgrade;
+        if (parsed?.plan) {
+          setRetryUpgrade(parsed);
+          setPaymentFailed(true);
+        }
+      } catch {
+        window.sessionStorage.removeItem(RETRY_STORAGE_KEY);
+      }
+    }
+
+    const url = new URL(window.location.href);
+    const payment = url.searchParams.get("payment");
+    if (payment === "success") {
+      setStatus("Payment successful. License has been upgraded.");
+      setPaymentFailed(false);
+      setRetryUpgrade(null);
+      cacheRetryUpgrade(null);
+      window.setTimeout(() => window.alert("Payment successful. License upgraded."), 0);
+      url.searchParams.delete("payment");
+      window.history.replaceState({}, "", url.toString());
+      return;
+    }
+
+    if (payment === "failed") {
+      setStatus("Payment failed. Please retry from this screen.");
+      setPaymentFailed(true);
+      window.setTimeout(() => window.alert("Payment failed. Please retry the payment."), 0);
+      url.searchParams.delete("payment");
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -106,8 +162,11 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
           ondismiss: () => {
             setProcessingPayment(false);
             setPaymentFailed(true);
-            setRetryUpgrade({ plan, seats: seatCount });
+            const pending = { plan, seats: seatCount };
+            setRetryUpgrade(pending);
+            cacheRetryUpgrade(pending);
             setStatus("Payment cancelled. Retry to complete your upgrade.");
+            redirectToBilling("failed");
             reject(new Error("Payment cancelled."));
           }
         },
@@ -124,12 +183,17 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
             onOrgUpdated(verified.org);
             setPaymentFailed(false);
             setRetryUpgrade(null);
+            cacheRetryUpgrade(null);
             setStatus(`Payment successful. Upgraded to ${verified.license.tier}.`);
+            redirectToBilling("success");
             resolve();
           } catch (err) {
             setPaymentFailed(true);
-            setRetryUpgrade({ plan, seats: seatCount });
+            const pending = { plan, seats: seatCount };
+            setRetryUpgrade(pending);
+            cacheRetryUpgrade(pending);
             setStatus(err instanceof Error ? err.message : "Payment verification failed.");
+            redirectToBilling("failed");
             reject(err instanceof Error ? err : new Error("Payment verification failed."));
           } finally {
             setProcessingPayment(false);
@@ -139,8 +203,11 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
       checkout.on("payment.failed", () => {
         setProcessingPayment(false);
         setPaymentFailed(true);
-        setRetryUpgrade({ plan, seats: seatCount });
+        const pending = { plan, seats: seatCount };
+        setRetryUpgrade(pending);
+        cacheRetryUpgrade(pending);
         setStatus("Payment failed. Please retry.");
+        redirectToBilling("failed");
         reject(new Error("Payment failed."));
       });
       checkout.open();
@@ -150,12 +217,13 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
   async function handleOrder(plan: UpgradePlan, overrideSeats?: number) {
     const seatCount = plan === "BUSINESS" ? Math.max(1, overrideSeats ?? seats) : 1;
     setStatus(null);
-    setPaymentFailed(false);
-    setRetryUpgrade(null);
-    try {
-      const order = (await createRazorpayOrder(plan, seatCount)) as RazorpayOrderResponse;
-      setOrderInfo(order);
-      await openCheckout(order, plan, seatCount);
+      setPaymentFailed(false);
+      setRetryUpgrade(null);
+      cacheRetryUpgrade(null);
+      try {
+        const order = (await createRazorpayOrder(plan, seatCount)) as RazorpayOrderResponse;
+        setOrderInfo(order);
+        await openCheckout(order, plan, seatCount);
     } catch (err) {
       if (isLocal && devUpgradeAllowed) {
         try {
@@ -164,13 +232,17 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
         } catch (upgradeErr) {
           setStatus(upgradeErr instanceof Error ? upgradeErr.message : "Unable to upgrade.");
           setPaymentFailed(true);
-          setRetryUpgrade({ plan, seats: seatCount });
+          const pending = { plan, seats: seatCount };
+          setRetryUpgrade(pending);
+          cacheRetryUpgrade(pending);
         }
         return;
       }
       setStatus(err instanceof Error ? err.message : "Unable to create order");
       setPaymentFailed(true);
-      setRetryUpgrade({ plan, seats: seatCount });
+      const pending = { plan, seats: seatCount };
+      setRetryUpgrade(pending);
+      cacheRetryUpgrade(pending);
     } finally {
       setProcessingPayment(false);
     }

@@ -1,50 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --palette-orange-1: #f4c08a;
-  --palette-orange-2: #dd8d58;
-  --palette-orange-3: #b95b35;
+  --palette-orange-1: #d9b18f;
+  --palette-orange-2: #a66f49;
+  --palette-orange-3: #6b4a36;
   --palette-ink: #1b1b1d;
-  --palette-off-white: #f7f3ed;
+  --palette-off-white: #f4f2ee;
   --bg-base: var(--palette-off-white);
-  --bg-panel: rgba(255, 255, 255, 0.86);
-  --bg-muted: rgba(255, 255, 255, 0.72);
-  --overlay: rgba(247, 243, 237, 0.78);
-  --accent-blue: #445362;
-  --accent-cyan: #b95b35;
-  --accent-violet: #dd8d58;
-  --accent-sun: #f4c08a;
-  --text-primary: #1f2b35;
-  --text-secondary: #556675;
-  --text-muted: #718291;
-  --border: rgba(52, 61, 69, 0.18);
+  --bg-panel: rgba(255, 255, 255, 0.9);
+  --bg-muted: #ece9e3;
+  --overlay: rgba(244, 242, 238, 0.86);
+  --accent-blue: #2f3033;
+  --accent-cyan: #8a8a8a;
+  --accent-violet: #6d635b;
+  --accent-sun: #a66f49;
+  --text-primary: #1b1b1d;
+  --text-secondary: #4d5359;
+  --text-muted: #7a828a;
+  --border: rgba(27, 27, 29, 0.14);
   --shadow: 0 18px 36px rgba(27, 27, 29, 0.1);
   --shadow-strong: 0 24px 54px rgba(27, 27, 29, 0.15);
-  --gradient-core: linear-gradient(135deg, #f4c08a 0%, #dd8d58 36%, #b95b35 68%, #9f4528 100%);
-  --gradient-soft: linear-gradient(135deg, rgba(244, 192, 138, 0.18), rgba(221, 141, 88, 0.12), rgba(185, 91, 53, 0.12));
-  --glow-1: rgba(244, 192, 138, 0.24);
-  --glow-2: rgba(221, 141, 88, 0.2);
-  --glow-3: rgba(185, 91, 53, 0.16);
+  --gradient-core: linear-gradient(135deg, #d8cec2 0%, #d1a480 46%, #9f6a45 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(217, 177, 143, 0.12), rgba(27, 27, 29, 0.06));
+  --glow-1: rgba(166, 111, 73, 0.12);
+  --glow-2: rgba(120, 84, 61, 0.12);
+  --glow-3: rgba(27, 27, 29, 0.08);
   --font-sans: "Noto Sans", "Inter", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
 }
 
 [data-theme="dark"] {
   --bg-base: #1b1b1d;
-  --bg-panel: rgba(33, 33, 36, 0.88);
-  --bg-muted: rgba(44, 44, 50, 0.86);
+  --bg-panel: rgba(30, 30, 31, 0.92);
+  --bg-muted: rgba(41, 41, 42, 0.9);
   --overlay: rgba(27, 27, 29, 0.8);
-  --text-primary: #f7f3ed;
-  --text-secondary: #d2c4b5;
-  --text-muted: #b29f8c;
-  --border: rgba(244, 192, 138, 0.22);
+  --text-primary: #f4f2ee;
+  --text-secondary: #d5ccc2;
+  --text-muted: #ab9f92;
+  --border: rgba(244, 242, 238, 0.18);
   --shadow: 0 22px 52px rgba(0, 0, 0, 0.38);
   --shadow-strong: 0 30px 66px rgba(0, 0, 0, 0.46);
-  --gradient-core: linear-gradient(135deg, #7c3f24 0%, #a44f2f 40%, #d07a49 70%, #ecb784 100%);
-  --gradient-soft: linear-gradient(135deg, rgba(124, 63, 36, 0.22), rgba(164, 79, 47, 0.18), rgba(208, 122, 73, 0.16));
-  --glow-1: rgba(208, 122, 73, 0.22);
-  --glow-2: rgba(164, 79, 47, 0.2);
-  --glow-3: rgba(124, 63, 36, 0.2);
+  --gradient-core: linear-gradient(135deg, #2f2d2b 0%, #6b4a36 48%, #9f6a45 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(166, 111, 73, 0.12), rgba(27, 27, 29, 0.2));
+  --glow-1: rgba(166, 111, 73, 0.16);
+  --glow-2: rgba(107, 74, 54, 0.14);
+  --glow-3: rgba(27, 27, 29, 0.22);
 }
 
 * {
@@ -82,7 +82,7 @@ body::after {
   background-image: linear-gradient(rgba(52, 61, 69, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(52, 61, 69, 0.05) 1px, transparent 1px);
   background-size: 34px 34px;
-  opacity: 0.18;
+  opacity: 0.1;
   pointer-events: none;
   z-index: -1;
 }
@@ -197,7 +197,7 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 196, 255, 0.4);
+  box-shadow: 0 0 0 2px rgba(166, 111, 73, 0.35);
 }
 
 .text-muted {
@@ -294,17 +294,17 @@ textarea:focus {
   width: 100%;
   background: var(--gradient-core);
   border: none;
-  color: #0b1220;
+  color: #1b1b1d;
   border-radius: 14px;
-  padding: 12px 12px;
-  min-height: 56px;
+  padding: 10px 12px;
+  min-height: 44px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(31, 47, 57, 0.12);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  box-shadow: 0 8px 16px rgba(31, 47, 57, 0.08);
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 
 .history-section,
@@ -396,10 +396,10 @@ textarea:focus {
   cursor: pointer;
   font-weight: 600;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   text-align: left;
-  justify-content: space-between;
+  justify-content: flex-start;
   box-shadow: 0 12px 24px rgba(32, 50, 59, 0.1);
   background-image: var(--gradient-soft);
   background-size: 120% 120%;
@@ -407,7 +407,7 @@ textarea:focus {
 
 .account-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   justify-content: flex-start;
 }
@@ -433,21 +433,21 @@ textarea:focus {
 }
 
 .account-badge {
-  background: rgba(221, 141, 88, 0.18);
+  background: rgba(166, 111, 73, 0.12);
   color: var(--text-secondary);
-  border: 1px solid rgba(221, 141, 88, 0.34);
+  border: 1px solid rgba(166, 111, 73, 0.3);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  max-width: 100%;
+  max-width: 165px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
+  white-space: nowrap;
   line-height: 1.2;
   margin-top: 4px;
-  width: fit-content;
+  width: 100%;
 }
 
 .account-menu-backdrop {
@@ -627,19 +627,19 @@ textarea:focus {
 .primary-button {
   background: var(--gradient-core);
   border: none;
-  color: #1b1b1d;
+  color: #0a0a0a;
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-size: 200% 200%;
-  animation: gradientShift 6s ease infinite;
+  background-size: 100% 100%;
+  animation: none;
 }
 
 .primary-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(84, 132, 164, 0.25);
+  box-shadow: 0 8px 16px rgba(27, 27, 29, 0.14);
 }
 
 .ghost-button {
@@ -805,10 +805,16 @@ textarea:focus {
 .send-button {
   background: var(--gradient-core);
   border: none;
-  color: #0b1220;
+  color: #0a0a0a;
   border-radius: 12px;
   padding: 12px 16px;
   cursor: pointer;
+}
+
+.send-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  filter: grayscale(0.2);
 }
 
 .assistant-avatar {
@@ -1756,6 +1762,9 @@ textarea:focus {
 
 .account-name {
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .account-email {
@@ -1773,13 +1782,13 @@ textarea:focus {
   color: #1b1b1d;
   font-size: 11px;
   font-weight: 600;
-  max-width: 100%;
+  max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.2;
   text-align: left;
-  width: fit-content;
+  width: 100%;
   min-height: 28px;
   align-self: flex-start;
 }
@@ -2221,8 +2230,8 @@ textarea:focus {
   }
 
   .new-chat-button {
-    min-height: 52px;
-    font-size: 15px;
+    min-height: 42px;
+    font-size: 14px;
     border-radius: 14px;
   }
 
@@ -2245,7 +2254,7 @@ textarea:focus {
   }
 
   .account-badge {
-    max-width: 100%;
+    max-width: 140px;
     font-size: 10px;
   }
 

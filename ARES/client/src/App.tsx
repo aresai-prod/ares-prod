@@ -149,8 +149,9 @@ export default function App() {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   }
 
+  const hasUserApiKey = Boolean(profile?.profile.apiKey?.trim());
   const apiNotice =
-    profile && !profile.profile.apiKey
+    profile && !hasUserApiKey
       ? "Add your OpenAI or Gemini API key in Profile to enable live LLM responses."
       : null;
   const showTaskLoader = loading || tasking;
@@ -729,7 +730,7 @@ export default function App() {
                 onSend={handleSend}
                 error={error}
                 notice={apiNotice}
-                disabled={false}
+                disabled={!hasUserApiKey}
                 disabledReason={null}
               />
               {showResults && (
