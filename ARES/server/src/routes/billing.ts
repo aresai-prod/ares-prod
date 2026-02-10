@@ -13,25 +13,75 @@ function devUpgradeAllowed(): boolean {
   return true;
 }
 
+function cleanEnv(value?: string): string {
+  if (!value) return "";
+  return value.trim().replace(/^['"]|['"]$/g, "");
+}
+
 function getRazorpayClient(): Razorpay {
-  const keyId = process.env.RAZORPAY_KEY_ID ?? "";
-  const keySecret = process.env.RAZORPAY_KEY_SECRET ?? "";
+  const keyId = cleanEnv(process.env.RAZORPAY_KEY_ID);
+  const keySecret = cleanEnv(process.env.RAZORPAY_KEY_SECRET);
   if (!keyId || !keySecret) {
     throw new Error("Razorpay is not configured. Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET.");
   }
   return new Razorpay({ key_id: keyId, key_secret: keySecret });
 }
 
+function isRazorpayConfigured(): boolean {
+  return Boolean(cleanEnv(process.env.RAZORPAY_KEY_ID) && cleanEnv(process.env.RAZORPAY_KEY_SECRET));
+}
+
+function buildReceipt(orgId: string): string {
+  const compactOrg = orgId.replace(/[^a-zA-Z0-9]/g, "").slice(0, 8) || "org";
+  const suffix = Date.now().toString().slice(-10);
+  return `ares_${compactOrg}_${suffix}`.slice(0, 40);
+}
+
+function toPaiseFromEnv(rawValue: string | undefined, fallbackInr: number): number {
+  const fallbackPaise = Math.max(100, Math.round(fallbackInr * 100));
+  if (!rawValue) return fallbackPaise;
+  const parsed = Number(cleanEnv(rawValue));
+  if (!Number.isFinite(parsed) || parsed <= 0) return fallbackPaise;
+  const amount = parsed < 100 ? Math.round(parsed * 100) : Math.round(parsed);
+  return Math.max(100, amount);
+}
+
 function amountForPlan(plan: string, seats: number): number {
-  const individual = Number(process.env.RAZORPAY_INDIVIDUAL_AMOUNT ?? 100);
-  const businessBase = Number(process.env.RAZORPAY_BUSINESS_BASE_AMOUNT ?? 200);
-  const businessSeat = Number(process.env.RAZORPAY_BUSINESS_SEAT_AMOUNT ?? 100);
+  const individual = toPaiseFromEnv(process.env.RAZORPAY_INDIVIDUAL_AMOUNT, 1);
+  const businessBase = toPaiseFromEnv(process.env.RAZORPAY_BUSINESS_BASE_AMOUNT, 2);
+  const businessSeat = toPaiseFromEnv(process.env.RAZORPAY_BUSINESS_SEAT_AMOUNT, 1);
   if (plan === "INDIVIDUAL") return individual;
   if (plan === "BUSINESS") {
     const seatCount = Math.max(1, seats);
     return businessBase + businessSeat * Math.max(0, seatCount - 1);
   }
   return individual;
+}
+
+function extractGatewayError(error: unknown): string {
+  if (error instanceof Error && error.message.trim()) return error.message.trim();
+  if (typeof error !== "object" || error === null) return "Unable to create order.";
+
+  const record = error as Record<string, unknown>;
+  const nested = (record.error as Record<string, unknown> | undefined) ?? undefined;
+  const parts = [
+    nested?.description,
+    nested?.reason,
+    nested?.message,
+    record.description,
+    record.message
+  ]
+    .map((value) => (typeof value === "string" ? value.trim() : ""))
+    .filter(Boolean);
+
+  if (parts.length > 0) return parts.join(" | ");
+  try {
+    const compact = JSON.stringify(record);
+    if (compact && compact !== "{}") return compact.slice(0, 260);
+  } catch {
+    // ignore JSON stringify issues
+  }
+  return "Unable to create order.";
 }
 
 router.get("/license", requireAuth, (req, res) => {
@@ -42,7 +92,8 @@ router.get("/license", requireAuth, (req, res) => {
       license: org.license,
       accountType: org.accountType,
       upgradeAvailable: true,
-      devUpgradeAllowed: devUpgradeAllowed()
+      devUpgradeAllowed: devUpgradeAllowed(),
+      checkoutConfigured: isRazorpayConfigured()
     });
   } catch (err) {
     return res.status(400).json({ error: err instanceof Error ? err.message : "Unable to load license." });
@@ -66,7 +117,7 @@ router.post("/razorpay/order", requireAuth, async (req, res) => {
     const order = await client.orders.create({
       amount,
       currency: "INR",
-      receipt: `ares_${org.id}_${Date.now()}`,
+      receipt: buildReceipt(org.id),
       notes: {
         orgId: org.id,
         userId: user.id,
@@ -74,9 +125,10 @@ router.post("/razorpay/order", requireAuth, async (req, res) => {
       }
     });
 
-    return res.json({ order, keyId: process.env.RAZORPAY_KEY_ID });
+    return res.json({ order, keyId: cleanEnv(process.env.RAZORPAY_KEY_ID) });
   } catch (err) {
-    return res.status(400).json({ error: err instanceof Error ? err.message : "Unable to create order." });
+    const message = extractGatewayError(err);
+    return res.status(400).json({ error: message });
   }
 });
 
@@ -100,7 +152,10 @@ router.post("/razorpay/verify", requireAuth, (req, res) => {
       return res.status(403).json({ error: "Only admins can verify payments." });
     }
 
-    const secret = process.env.RAZORPAY_KEY_SECRET ?? "";
+    const secret = cleanEnv(process.env.RAZORPAY_KEY_SECRET);
+    if (!secret) {
+      return res.status(400).json({ error: "Razorpay secret is missing on server." });
+    }
     const body = `${razorpay_order_id}|${razorpay_payment_id}`;
     const expected = crypto.createHmac("sha256", secret).update(body).digest("hex");
     if (expected !== razorpay_signature) {

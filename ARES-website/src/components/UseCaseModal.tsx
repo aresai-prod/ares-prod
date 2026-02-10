@@ -26,12 +26,12 @@ export default function UseCaseModal({ open, title, description, onClose }: UseC
       <div className="glass-card max-w-lg w-full p-6">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-semibold">{title}</h3>
-          <button className="text-black/60 hover:text-black" onClick={onClose}>
+          <button className="text-slate-300 hover:text-white transition-colors" onClick={onClose}>
             Close
           </button>
         </div>
-        <p className="mt-4 text-sm text-black/70">{description}</p>
-        <div className="mt-6 rounded-2xl border border-black/10 bg-white/70 p-4 text-xs text-black/70">
+        <p className="mt-4 text-sm text-slate-200">{description}</p>
+        <div className="mt-6 rounded-2xl border border-white/15 bg-white/5 p-4 text-xs text-slate-300">
           Live preview: ARES will orchestrate AI workflows, query your data sources, and generate secure insights in Console Bay.
         </div>
       </div>

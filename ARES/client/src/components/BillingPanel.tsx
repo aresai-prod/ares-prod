@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { License, Organization, User } from "../lib/types";
-import { createRazorpayOrder, fetchLicense, upgradeSubscription, verifyRazorpayPayment } from "../lib/api";
+import { createRazorpayOrder, fetchLicense, verifyRazorpayPayment } from "../lib/api";
 
 type UpgradePlan = "INDIVIDUAL" | "BUSINESS";
 
@@ -51,8 +51,8 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
   const [paymentFailed, setPaymentFailed] = useState(false);
   const [retryUpgrade, setRetryUpgrade] = useState<PendingUpgrade | null>(null);
   const [processingPayment, setProcessingPayment] = useState(false);
-  const [devUpgradeAllowed, setDevUpgradeAllowed] = useState(false);
-  const isLocal = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const [razorpayReady, setRazorpayReady] = useState(false);
+  const [checkoutConfigured, setCheckoutConfigured] = useState(true);
 
   function redirectToBilling(payment: "success" | "failed") {
     if (typeof window === "undefined") return;
@@ -75,10 +75,10 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
     fetchLicense()
       .then((data) => {
         setLicense(data.license);
-        setDevUpgradeAllowed(Boolean(data.devUpgradeAllowed) || isLocal);
+        setCheckoutConfigured(data.checkoutConfigured !== false);
       })
       .catch((err) => setStatus(err instanceof Error ? err.message : "Failed to load license"));
-  }, [isLocal]);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -119,10 +119,18 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.Razorpay) return;
+    if (window.Razorpay) {
+      setRazorpayReady(true);
+      return;
+    }
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.async = true;
+    script.onload = () => setRazorpayReady(true);
+    script.onerror = () => {
+      setRazorpayReady(false);
+      setStatus("Unable to load Razorpay checkout. Please retry.");
+    };
     document.body.appendChild(script);
     return () => {
       if (script.parentNode) {
@@ -131,17 +139,11 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
     };
   }, []);
 
-  async function runDevUpgrade(plan: UpgradePlan, seatCount: number) {
-    const result = await upgradeSubscription(plan, seatCount);
-    setLicense(result.license);
-    onOrgUpdated(result.org);
-    setStatus(`Upgraded to ${result.license.tier}.`);
-    setPaymentFailed(false);
-    setRetryUpgrade(null);
-  }
-
   async function openCheckout(orderPayload: RazorpayOrderResponse, plan: UpgradePlan, seatCount: number) {
-    if (typeof window === "undefined" || !window.Razorpay) {
+    if (typeof window === "undefined") {
+      throw new Error("Checkout is unavailable outside browser context.");
+    }
+    if (!window.Razorpay) {
       throw new Error("Razorpay checkout failed to load.");
     }
     setProcessingPayment(true);
@@ -217,28 +219,25 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
   async function handleOrder(plan: UpgradePlan, overrideSeats?: number) {
     const seatCount = plan === "BUSINESS" ? Math.max(1, overrideSeats ?? seats) : 1;
     setStatus(null);
-      setPaymentFailed(false);
-      setRetryUpgrade(null);
-      cacheRetryUpgrade(null);
-      try {
-        const order = (await createRazorpayOrder(plan, seatCount)) as RazorpayOrderResponse;
-        setOrderInfo(order);
-        await openCheckout(order, plan, seatCount);
-    } catch (err) {
-      if (isLocal && devUpgradeAllowed) {
-        try {
-          await runDevUpgrade(plan, seatCount);
-          return;
-        } catch (upgradeErr) {
-          setStatus(upgradeErr instanceof Error ? upgradeErr.message : "Unable to upgrade.");
-          setPaymentFailed(true);
-          const pending = { plan, seats: seatCount };
-          setRetryUpgrade(pending);
-          cacheRetryUpgrade(pending);
-        }
-        return;
+    setPaymentFailed(false);
+    setRetryUpgrade(null);
+    cacheRetryUpgrade(null);
+    try {
+      if (!checkoutConfigured) {
+        throw new Error("Payment gateway is not configured on the server.");
       }
-      setStatus(err instanceof Error ? err.message : "Unable to create order");
+      if (!razorpayReady && typeof window !== "undefined" && !window.Razorpay) {
+        throw new Error("Razorpay checkout is still loading. Retry in a moment.");
+      }
+      const order = (await createRazorpayOrder(plan, seatCount)) as RazorpayOrderResponse;
+      if (!order?.order?.id || !order?.keyId) {
+        throw new Error("Payment order response is incomplete.");
+      }
+      setOrderInfo(order);
+      await openCheckout(order, plan, seatCount);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Unable to create order";
+      setStatus(message);
       setPaymentFailed(true);
       const pending = { plan, seats: seatCount };
       setRetryUpgrade(pending);
@@ -256,11 +255,19 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
       </div>
 
       {status && <div className={paymentFailed ? "error-banner" : "notice-banner"}>{status}</div>}
-      {paymentFailed && retryUpgrade && (
+      {!checkoutConfigured && (
+        <div className="error-banner">
+          Payment gateway is not configured on the server. Add `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET`.
+        </div>
+      )}
+      {!razorpayReady && !paymentFailed && (
+        <div className="notice-banner">Preparing secure checkout...</div>
+      )}
+      {paymentFailed && retryUpgrade && checkoutConfigured && (
         <button
           className="primary-button"
           onClick={() => handleOrder(retryUpgrade.plan, retryUpgrade.seats)}
-          disabled={processingPayment}
+          disabled={processingPayment || !checkoutConfigured}
         >
           {processingPayment ? "Processing..." : "Retry payment"}
         </button>
@@ -299,7 +306,11 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
           <div className="pricing-price">INR 1 / month</div>
           <div className="panel-subtitle">Single user, full ARES access.</div>
           {user.role === "admin" && (
-            <button className="primary-button" onClick={() => handleOrder("INDIVIDUAL")} disabled={processingPayment}>
+            <button
+              className="primary-button"
+              onClick={() => handleOrder("INDIVIDUAL")}
+              disabled={processingPayment || !checkoutConfigured}
+            >
               Upgrade to Individual
             </button>
           )}
@@ -318,7 +329,11 @@ export default function BillingPanel({ org, user, onDowngrade, onCancel, onOrgUp
             placeholder="Seats"
           />
           {user.role === "admin" && (
-            <button className="primary-button" onClick={() => handleOrder("BUSINESS")} disabled={processingPayment}>
+            <button
+              className="primary-button"
+              onClick={() => handleOrder("BUSINESS")}
+              disabled={processingPayment || !checkoutConfigured}
+            >
               Upgrade to Enterprise
             </button>
           )}

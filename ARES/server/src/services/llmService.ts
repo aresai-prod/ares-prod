@@ -323,7 +323,12 @@ function computeHeuristicQuality(
   const tableScore = Math.min(30, (tableComplete / Math.max(1, tables.length)) * 30);
   const columnScore = Math.min(20, (columnComplete / Math.max(1, columns.length)) * 20);
 
-  const params = knowledge.parameters;
+  const params = knowledge.parameters ?? {
+    dateHandlingRules: "",
+    bestQueryPractices: "",
+    businessContext: "",
+    sampleQueries: []
+  };
   const paramsScore = [
     params.dateHandlingRules?.trim(),
     params.bestQueryPractices?.trim(),

@@ -29,6 +29,8 @@ export default function ChatPanel({
 }: ChatPanelProps) {
   const [input, setInput] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
+  const canSend = input.trim().length > 0;
+  const isSendDisabled = disabled || loading;
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -86,15 +88,16 @@ export default function ChatPanel({
           placeholder="e.g. Show monthly revenue trends for the last 6 months"
           onChange={(event) => setInput(event.target.value)}
           rows={2}
-          disabled={disabled}
         />
         <button
           className="send-button"
           onClick={() => {
+            if (!canSend || loading || disabled) return;
             onSend(input);
             setInput("");
           }}
-          disabled={loading || disabled}
+          disabled={isSendDisabled}
+          aria-disabled={isSendDisabled}
         >
           Send
         </button>

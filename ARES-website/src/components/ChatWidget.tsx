@@ -42,29 +42,26 @@ export default function ChatWidget() {
     <div className="chat-widget">
       {open && (
         <div className="glass-card chat-window">
-          <div className="flex items-center justify-between p-4 border-b border-black/10">
+          <div className="chat-window-header">
             <div>
-              <div className="text-sm font-semibold">ARES Concierge</div>
-              <div className="text-xs text-black/60">Instant answers</div>
+              <div className="chat-window-title">ARES Concierge</div>
+              <div className="chat-window-subtitle">Instant answers</div>
             </div>
-            <button
-              className="text-xs text-black/60 hover:text-black"
-              onClick={() => setOpen(false)}
-            >
+            <button className="chat-window-close" onClick={() => setOpen(false)}>
               Close
             </button>
           </div>
-          <div className="p-4">
-            <div className="chat-messages mb-3">
+          <div className="chat-window-body">
+            <div className="chat-messages">
               {messages.map((msg, index) => (
                 <div key={index} className={`chat-bubble ${msg.role === "user" ? "user" : ""}`}>
                   {msg.text}
                 </div>
               ))}
             </div>
-            <div className="flex gap-2">
+            <div className="chat-input-row">
               <input
-                className="flex-1 rounded-full bg-white/80 border border-black/10 px-3 py-2 text-sm text-black"
+                className="chat-input"
                 placeholder="Ask about ARES"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}

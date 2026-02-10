@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Preloader from "../components/Preloader";
 import ChatWidget from "../components/ChatWidget";
+import Preloader from "../components/Preloader";
 import UseCaseModal from "../components/UseCaseModal";
 
 const consoleUrl = process.env.NEXT_PUBLIC_CONSOLE_URL ?? "https://aresai-production.web.app/?mode=login";
@@ -24,12 +24,13 @@ const useCases = [
 ];
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(true);
+  const [showStartupLoader, setShowStartupLoader] = useState(true);
   const [activeCase, setActiveCase] = useState<number | null>(null);
   const [contactStatus, setContactStatus] = useState<string | null>(null);
   const [upgradeStatus, setUpgradeStatus] = useState<string | null>(null);
   const [isAuthed, setIsAuthed] = useState(false);
   const [projectLabel, setProjectLabel] = useState("");
+  const [headerScrolled, setHeaderScrolled] = useState(false);
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -38,6 +39,14 @@ export default function HomePage() {
   });
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      if (window.location.hash) {
+        const cleanUrl = `${window.location.pathname}${window.location.search}`;
+        window.history.replaceState({}, "", cleanUrl);
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
     const full = "PROJECT: ARES";
     let index = 0;
     const timer = window.setInterval(() => {
@@ -57,6 +66,16 @@ export default function HomePage() {
     const localToken = typeof window !== "undefined" ? window.localStorage.getItem("ares_token") : "";
     const cookieToken = readCookie();
     setIsAuthed(Boolean(localToken || cookieToken));
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (typeof window === "undefined") return;
+      setHeaderScrolled(window.scrollY > 20);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -143,10 +162,10 @@ export default function HomePage() {
   }, [activeCase]);
 
   return (
-    <div className="site-root">
-      {loading && <Preloader onDone={() => setLoading(false)} />}
-
-      <header className="site-header">
+    <>
+      {showStartupLoader && <Preloader onDone={() => setShowStartupLoader(false)} />}
+      <div className="site-root">
+      <header className={`site-header ${headerScrolled ? "scrolled" : ""}`}>
         <a className="site-logo" href="#product">
           <img src="/ares-icon.svg" alt="ARES" />
           <span>ARES</span>
@@ -387,6 +406,7 @@ export default function HomePage() {
           onClose={() => setActiveCase(null)}
         />
       )}
-    </div>
+      </div>
+    </>
   );
 }

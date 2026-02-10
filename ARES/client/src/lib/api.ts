@@ -149,8 +149,20 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   }
 
   if (!res.ok) {
-    const error = await res.json().catch(() => ({ error: "Request failed" }));
-    throw new Error(error.error ?? "Request failed");
+    const raw = await res.text().catch(() => "");
+    let message = `Request failed (${res.status})`;
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw) as { error?: string; message?: string };
+        message = parsed.error ?? parsed.message ?? message;
+      } catch {
+        const compact = raw.replace(/\s+/g, " ").trim();
+        if (compact) {
+          message = compact.length > 220 ? `${compact.slice(0, 220)}...` : compact;
+        }
+      }
+    }
+    throw new Error(message);
   }
 
   return res.json() as Promise<T>;
@@ -392,7 +404,13 @@ export async function commentInsight(podId: string, insightId: string, content: 
   });
 }
 
-export async function fetchLicense(): Promise<{ license: License; accountType: string; upgradeAvailable: boolean; devUpgradeAllowed?: boolean }> {
+export async function fetchLicense(): Promise<{
+  license: License;
+  accountType: string;
+  upgradeAvailable: boolean;
+  devUpgradeAllowed?: boolean;
+  checkoutConfigured?: boolean;
+}> {
   return request("/billing/license");
 }
 

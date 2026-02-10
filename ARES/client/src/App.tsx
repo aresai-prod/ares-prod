@@ -88,6 +88,52 @@ function buildWelcomeMessages(name?: string) {
   ];
 }
 
+function estimateKnowledgeScore(knowledge: KnowledgeBase, hasKnowledgeBank: boolean): number {
+  const tables = knowledge.tableDictionary ?? [];
+  const columns = knowledge.columnDictionary ?? [];
+  const metrics = knowledge.metrics ?? [];
+  const params = knowledge.parameters ?? {
+    dateHandlingRules: "",
+    bestQueryPractices: "",
+    businessContext: "",
+    sampleQueries: []
+  };
+
+  const tableComplete = tables.filter((entry) => entry.tableName?.trim() && entry.description?.trim()).length;
+  const columnComplete = columns.filter(
+    (entry) =>
+      entry.tableName?.trim() &&
+      entry.columnName?.trim() &&
+      entry.dataType?.trim() &&
+      entry.description?.trim()
+  ).length;
+  const tableScore = Math.min(30, (tableComplete / Math.max(1, tables.length)) * 30);
+  const columnScore = Math.min(20, (columnComplete / Math.max(1, columns.length)) * 20);
+
+  const paramsScore =
+    [
+      params.dateHandlingRules?.trim(),
+      params.bestQueryPractices?.trim(),
+      params.businessContext?.trim(),
+      params.sampleQueries?.length ? "ok" : ""
+    ].filter(Boolean).length * 5;
+
+  const metricFields = metrics.length * 4;
+  const metricFilled = metrics.reduce((total, metric) => {
+    return (
+      total +
+      (metric.name?.trim() ? 1 : 0) +
+      (metric.definition?.trim() ? 1 : 0) +
+      (metric.sampleQuery?.trim() ? 1 : 0) +
+      (metric.defaultFilters?.trim() ? 1 : 0)
+    );
+  }, 0);
+  const metricScore = metricFields ? (metricFilled / metricFields) * 20 : 0;
+  const bankScore = hasKnowledgeBank ? 10 : 0;
+
+  return Math.max(0, Math.min(100, Math.round(tableScore + columnScore + paramsScore + metricScore + bankScore)));
+}
+
 type NavKey = "chat" | "dashboards" | "knowledge" | "billing" | "insights" | "team";
 
 type TrendWidget = { widgetId: string; title: string; chartType: "line" | "bar" | "pie"; data: any };
@@ -134,15 +180,14 @@ export default function App() {
   const [activePanel, setActivePanel] = useState<NavKey>(() => readQueryPanel() ?? "chat");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") return "light";
+    if (typeof window === "undefined") return "dark";
     try {
       const saved = window.localStorage.getItem("ares_theme");
       if (saved === "light" || saved === "dark") return saved;
     } catch {
       // ignore storage errors
     }
-    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    return prefersDark ? "dark" : "light";
+    return "dark";
   });
 
   function toggleTheme() {
@@ -488,15 +533,31 @@ export default function App() {
   }
 
   async function handleEvaluateQuality() {
-    if (!activePodId) return;
     setTasking(true);
     setError(null);
+    const fallbackScore = estimateKnowledgeScore(knowledge, knowledgeBank.length > 0);
+    const fallbackQuality = {
+      score: fallbackScore,
+      notes: "Evaluated using local scoring fallback.",
+      updatedAt: new Date().toISOString(),
+      evaluatedBy: "system" as const
+    };
+    setKnowledgeQuality(fallbackQuality);
+    if (!activePodId) {
+      setTasking(false);
+      return;
+    }
     try {
       const quality = await evaluateKnowledgeQuality(activePodId);
-      setKnowledgeQuality(quality.quality);
+      if (quality.quality) {
+        setKnowledgeQuality(quality.quality);
+      } else {
+        setKnowledgeQuality(fallbackQuality);
+      }
       void trackEvent("knowledge_quality_scored", { score: quality.quality?.score ?? null }).catch(() => {});
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to evaluate knowledge quality.");
+      setKnowledgeQuality(fallbackQuality);
+      setError(err instanceof Error ? `${err.message} (fallback score applied)` : "Fallback score applied.");
     } finally {
       setTasking(false);
     }

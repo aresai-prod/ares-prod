@@ -55,13 +55,16 @@ const allowedOriginEntries = Array.from(
   hostname: new URL(origin).hostname.toLowerCase()
 }));
 
+const allowedHostnames = new Set(allowedOriginEntries.map((entry) => entry.hostname));
+const allowedHostnameSuffixes = Array.from(allowedHostnames).map((hostname) => `.${hostname}`);
+
 function isAllowedOrigin(origin: string): boolean {
   const normalized = normalizeOriginValue(origin);
   if (!normalized) return false;
   const hostname = new URL(normalized).hostname.toLowerCase();
-  return allowedOriginEntries.some(
-    (allowed) => allowed.origin === normalized || allowed.hostname === hostname
-  );
+  if (allowedHostnames.has(hostname)) return true;
+  if (allowedHostnameSuffixes.some((suffix) => hostname.endsWith(suffix))) return true;
+  return allowedOriginEntries.some((allowed) => allowed.origin === normalized);
 }
 
 app.use(

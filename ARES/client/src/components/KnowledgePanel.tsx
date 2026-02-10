@@ -37,6 +37,51 @@ function parseCsv(text: string): string[][] {
     .map((line) => line.split(",").map((cell) => cell.trim()));
 }
 
+function estimateKnowledgeScore(knowledge: KnowledgeBase, hasKnowledgeBank: boolean): number {
+  const tables = knowledge.tableDictionary ?? [];
+  const columns = knowledge.columnDictionary ?? [];
+  const metrics = knowledge.metrics ?? [];
+  const params = knowledge.parameters ?? {
+    dateHandlingRules: "",
+    bestQueryPractices: "",
+    businessContext: "",
+    sampleQueries: []
+  };
+
+  const tableComplete = tables.filter((entry) => entry.tableName?.trim() && entry.description?.trim()).length;
+  const columnComplete = columns.filter(
+    (entry) =>
+      entry.tableName?.trim() &&
+      entry.columnName?.trim() &&
+      entry.dataType?.trim() &&
+      entry.description?.trim()
+  ).length;
+  const tableScore = Math.min(30, (tableComplete / Math.max(1, tables.length)) * 30);
+  const columnScore = Math.min(20, (columnComplete / Math.max(1, columns.length)) * 20);
+  const paramsScore =
+    [
+      params.dateHandlingRules?.trim(),
+      params.bestQueryPractices?.trim(),
+      params.businessContext?.trim(),
+      params.sampleQueries?.length ? "ok" : ""
+    ].filter(Boolean).length * 5;
+
+  const metricFields = metrics.length * 4;
+  const metricFilled = metrics.reduce((total, metric) => {
+    return (
+      total +
+      (metric.name?.trim() ? 1 : 0) +
+      (metric.definition?.trim() ? 1 : 0) +
+      (metric.sampleQuery?.trim() ? 1 : 0) +
+      (metric.defaultFilters?.trim() ? 1 : 0)
+    );
+  }, 0);
+  const metricScore = metricFields ? (metricFilled / metricFields) * 20 : 0;
+  const bankScore = hasKnowledgeBank ? 10 : 0;
+
+  return Math.max(0, Math.min(100, Math.round(tableScore + columnScore + paramsScore + metricScore + bankScore)));
+}
+
 export default function KnowledgePanel({
   pods,
   activePodId,
@@ -61,6 +106,7 @@ export default function KnowledgePanel({
   const [sourceDraft, setSourceDraft] = useState<DataSources>(dataSources);
   const [sourceStatus, setSourceStatus] = useState<string | null>(null);
   const [activeConnector, setActiveConnector] = useState<DataSourceKey>("localSql");
+  const [localQualityScore, setLocalQualityScore] = useState<number | null>(null);
   const [connectorForms, setConnectorForms] = useState({
     localSql: {
       driver: "postgres",
@@ -100,11 +146,24 @@ export default function KnowledgePanel({
     docText: "",
     podId: activePodId ?? ""
   });
-  const qualityScore = quality?.score ?? null;
+  const parsedQualityScore =
+    quality && Number.isFinite(Number(quality.score)) ? Math.max(0, Math.min(100, Math.round(Number(quality.score)))) : null;
+  const fallbackQualityScore = estimateKnowledgeScore(draft, knowledgeBank.length > 0);
+  const qualityScore = parsedQualityScore ?? localQualityScore;
 
   useEffect(() => {
     setDraft(knowledge);
   }, [knowledge]);
+
+  useEffect(() => {
+    if (parsedQualityScore !== null) {
+      setLocalQualityScore(parsedQualityScore);
+    }
+  }, [parsedQualityScore]);
+
+  useEffect(() => {
+    setLocalQualityScore(null);
+  }, [activePodId]);
 
   useEffect(() => {
     setSourceDraft(dataSources);
@@ -261,11 +320,15 @@ export default function KnowledgePanel({
           )}
         </div>
         <div className="quality-actions">
-          {isAdmin && (
-            <button className="ghost-button" onClick={onEvaluateQuality}>
-              Evaluate quality
-            </button>
-          )}
+          <button
+            className="ghost-button"
+            onClick={() => {
+              setLocalQualityScore(fallbackQualityScore);
+              onEvaluateQuality();
+            }}
+          >
+            Evaluate quality
+          </button>
         </div>
       </div>
 
